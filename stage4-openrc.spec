@@ -31,5 +31,5 @@ stage4/rcadd:
 	sshd|default
 	udev|sysinit
 stage4/empty: /var/tmp /var/cache /var/lock /var/log /var/run /var/spool /tmp
-stage4/root_overlay: /home/luna/xenia-linux/rootfs/catalyst/overlay
-stage4/fsscript: /home/luna/xenia-linux/rootfs/catalyst/stage4-openrc.sh
+stage4/root_overlay: [CATALYST_DIR]overlay
+stage4/fsscript: [CATALYST_DIR]stage4-openrc.sh
