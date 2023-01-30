@@ -27,6 +27,7 @@ stage4/packages:
 	app-admin/sudo
 	sys-apps/flatpak
 	dev-vcs/git
+	dev-util/catalyst
 stage4/rcadd:
 	lvm|boot
 	sshd|default
