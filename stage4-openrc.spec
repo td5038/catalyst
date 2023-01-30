@@ -26,6 +26,7 @@ stage4/packages:
 	sys-fs/squashfs-tools
 	app-admin/sudo
 	sys-apps/flatpak
+	dev-vcs/git
 stage4/rcadd:
 	lvm|boot
 	sshd|default
