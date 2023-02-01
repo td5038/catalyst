@@ -27,6 +27,7 @@ stage4/packages:
 	app-admin/sudo
 	sys-apps/flatpak
 	dev-vcs/git
+	app-arch/pixz
 	dev-util/catalyst
 stage4/rcadd:
 	lvm|boot
