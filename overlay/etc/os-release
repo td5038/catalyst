@@ -1,3 +1,6 @@
 NAME=Xenia
+VERSION="0.1 Zerda"
 ID=xenia
-PRETTY_NAME="Xenia Linux"
+PRETTY_NAME="Xenia Linux 0.1 Zerda"
+VERSION_ID="0.1"
+VERSION_CODENAME="Zerda"

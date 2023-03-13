@@ -7,3 +7,12 @@ All the spec files are here, as well as the `/var/tmp/catalyst/config` directory
 The default root password is `87658765XeniaLinux`. This can be changed in `stage4-openrc.sh`.
 
 An account called xenia is also created with the same password. This account has sudo privileges.
+
+## Notes
+
+The stage4 is built with `/etc/catalyst/catalystrc` containing the following extra environment variables:
+
+```
+GRUB_PLATFORMS="efi-64"
+VIDEO_CARDS="*"
+```
