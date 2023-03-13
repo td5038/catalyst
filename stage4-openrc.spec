@@ -2,15 +2,22 @@ subarch: amd64
 target: stage4
 version_stamp: openrc-@TIMESTAMP@
 rel_type: default
-profile: default/linux/amd64/17.1
-snapshot: stable
+profile: default/linux/amd64/17.1/desktop/gnome
+snapshot: 2023.03.12
 source_subpath: default/stage3-amd64-openrc-@TIMESTAMP@
 compression_mode: pixz
 portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
 stage4/use:
+	video_cards_intel
+	video_cards_nouveau
+	video_cards_radeon
+	video_cards_radeonsi
+	video_cards_virgl
+	video_cards_vmware
 	lvm
 	udev
+	-gnome-online-accounts
 stage4/packages:
 	net-misc/dhcpcd
 	app-misc/neofetch
@@ -29,10 +36,20 @@ stage4/packages:
 	dev-vcs/git
 	app-arch/pixz
 	dev-util/catalyst
+	media-libs/mesa
+	dev-util/wayland-scanner
+	sys-apps/xdg-desktop-portal-gtk
+	gui-libs/xdg-desktop-portal-wlr
+	gnome-base/gnome-light
+	gnome-extra/gnome-software
+	gui-libs/display-manager-init
+	media-fonts/fonts-meta
 stage4/rcadd:
 	lvm|boot
+	elogind|boot
+    display-manager|default
 	sshd|default
 	udev|sysinit
 stage4/empty: /var/tmp /var/cache /var/lock /var/log /var/run /var/spool /tmp
-stage4/root_overlay: [CATALYST_DIR]overlay
-stage4/fsscript: [CATALYST_DIR]stage4-openrc.sh
+stage4/root_overlay: /home/luna/.foxpkg/catalyst/overlay
+stage4/fsscript: /home/luna/.foxpkg/catalyst/stage4-openrc.sh
