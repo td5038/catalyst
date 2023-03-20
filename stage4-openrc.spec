@@ -43,6 +43,7 @@ stage4/packages:
 	gnome-base/gnome-light
 	gnome-extra/gnome-software
 	gnome-extra/gnome-shell-extensions
+	gnome-extra/gnome-browser-connector
 	gnome-extra/gnome-tweaks
 	gui-libs/display-manager-init
 	media-fonts/fonts-meta
