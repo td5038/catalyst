@@ -24,10 +24,10 @@ stage4/packages:
 	sys-boot/grub
 	sys-fs/lvm2
 	sys-kernel/linux-firmware
-    sys-fs/e2fsprogs
-    sys-fs/dosfstools
-    sys-apps/iproute2
-    app-editors/nano
+	sys-fs/e2fsprogs
+	sys-fs/dosfstools
+	sys-apps/iproute2
+	app-editors/nano
 	sys-apps/lsb-release
 	sys-kernel/gentoo-kernel-bin
 	sys-fs/squashfs-tools
@@ -47,6 +47,9 @@ stage4/packages:
 	gnome-extra/gnome-tweaks
 	gui-libs/display-manager-init
 	media-fonts/fonts-meta
+	app-containers/crun
+	app-containers/podman
+	app-containers/distrobox
 stage4/rcadd:
 	lvm|boot
 	elogind|boot
