@@ -17,6 +17,12 @@ stage4/use:
 	video_cards_vmware
 	lvm
 	udev
+	pipewire
+	pipewire-alsa
+	wayland
+	fuse
+	networkmanager
+	usb
 	-gnome-online-accounts
 stage4/packages:
 	net-misc/dhcpcd
@@ -50,12 +56,15 @@ stage4/packages:
 	app-containers/crun
 	app-containers/podman
 	app-containers/distrobox
+	net-print/cups
+	net-fs/samba
 stage4/rcadd:
 	lvm|boot
 	elogind|boot
     display-manager|default
 	sshd|default
 	udev|sysinit
+	cupsd|default
 stage4/empty: /var/tmp /var/cache /var/lock /var/log /var/run /var/spool /tmp
 stage4/root_overlay: /home/luna/.foxpkg/catalyst/overlay
 stage4/fsscript: /home/luna/.foxpkg/catalyst/stage4-openrc.sh
