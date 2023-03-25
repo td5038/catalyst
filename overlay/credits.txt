@@ -1,6 +1,13 @@
 Heya! Thank you for trying out Xenia Linux. We hope you have a great time.
 
-This is Xenia Linux 0.1 "Zerda".
+This is Xenia Linux 0.2 "Cerberus".
+
+Added features:
+- distrobox to allow you to run different OSes for installation of CLI packages
+- writable /etc to allow for you to change passwords, add users and change system configuration
+- pipewire!
+- polkit auth to make gnome nicer
+- cups for printing
 
 A big thank you to Jack for making and maintaining the website + social media,
 to Immoloism for helping with much of setting up our build system (as well as
