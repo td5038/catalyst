@@ -9,6 +9,8 @@ compression_mode: pixz
 portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
 stage4/use:
+	-qt5
+	-kde
 	video_cards_intel
 	video_cards_nouveau
 	video_cards_radeon
@@ -19,10 +21,10 @@ stage4/use:
 	udev
 	pipewire
 	pipewire-alsa
-	wayland
 	fuse
 	networkmanager
 	usb
+	python_targets_python3_10
 	-gnome-online-accounts
 stage4/packages:
 	net-misc/dhcpcd
@@ -61,7 +63,7 @@ stage4/packages:
 stage4/rcadd:
 	lvm|boot
 	elogind|boot
-    display-manager|default
+	display-manager|default
 	sshd|default
 	udev|sysinit
 	cupsd|default
