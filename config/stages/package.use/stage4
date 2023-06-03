@@ -1,3 +1,4 @@
+sys-boot/grub device-mapper
 sys-fs/lvm2 thin
 sys-libs/pam -filecaps
 media-libs/libsndfile minimal

@@ -1,13 +1,11 @@
 Heya! Thank you for trying out Xenia Linux. We hope you have a great time.
 
-This is Xenia Linux 0.2 "Cerberus".
+This is Xenia Linux 0.3 "Long-haired Chihuahua".
 
 Added features:
-- distrobox to allow you to run different OSes for installation of CLI packages
-- writable /etc to allow for you to change passwords, add users and change system configuration
-- pipewire!
-- polkit auth to make gnome nicer
-- cups for printing
+- zram for swap
+- more filesystem utils for a nicer experience OOTB
+- flatpak install by default
 
 A big thank you to Jack for making and maintaining the website + social media,
 to Immoloism for helping with much of setting up our build system (as well as
