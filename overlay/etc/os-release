@@ -1,6 +1,6 @@
 NAME=Xenia
-VERSION="0.3 Long-haired Chihuahua"
+VERSION="0.3.1 Long-haired Chihuahua"
 ID=xenia
-PRETTY_NAME="Xenia Linux 0.3 Long-haired Chihuahua"
-VERSION_ID="0.3"
+PRETTY_NAME="Xenia Linux 0.3.1 Long-haired Chihuahua"
+VERSION_ID="0.3.1"
 VERSION_CODENAME="Long-haired Chihuahua"

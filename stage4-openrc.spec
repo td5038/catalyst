@@ -18,7 +18,6 @@ stage4/use:
 	pipewire
 	pipewire-alsa
 	policykit
-	python_targets_python3_10
 	udev
 	usb
 	video_cards_intel
@@ -47,7 +46,6 @@ stage4/packages:
 	net-fs/samba
 	net-print/cups
 	sys-apps/flatpak
-	sys-apps/gnome-disk-utility
 	sys-apps/iproute2
 	sys-apps/lsb-release
 	sys-apps/xdg-desktop-portal-gtk

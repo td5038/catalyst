@@ -1,6 +1,6 @@
 Heya! Thank you for trying out Xenia Linux. We hope you have a great time.
 
-This is Xenia Linux 0.3 "Long-haired Chihuahua".
+This is Xenia Linux 0.3.1 "Long-haired Chihuahua".
 
 Added features:
 - zram for swap
