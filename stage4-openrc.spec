@@ -32,6 +32,7 @@ stage4/packages:
 	app-containers/distrobox
 	app-containers/podman
 	app-editors/nano
+	app-emulation/spice-vdagent
 	dev-util/wayland-scanner
 	dev-vcs/git
 	gnome-base/gnome-light
@@ -83,6 +84,7 @@ stage4/rcadd:
 	elogind|boot
 	lvm|boot
 	sshd|default
+	spice-vdagent|default
 	udev|sysinit
 stage4/empty: /var/tmp /var/cache /var/lock /var/log /var/run /var/spool /tmp
 stage4/root_overlay: /home/luna/.foxpkg/catalyst/overlay
