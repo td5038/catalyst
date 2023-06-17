@@ -95,6 +95,6 @@ stage4/rcadd:
 	spice-vdagent|default
 	udev|sysinit
 stage4/empty: /var/tmp /var/cache /tmp 
-stage4/rm: /usr/share/gdm/autostart/LoginWindow/spice-vdagent.desktop /usr/share/gdm/greeter/autostart/spice-vdagent.desktop
+stage4/rm: /usr/share/gdm/autostart/LoginWindow/spice-vdagent.desktop /usr/share/gdm/greeter/autostart/spice-vdagent.desktop /usr/share/gnome-background-properties/adwaita.xml
 stage4/root_overlay: /home/luna/.foxpkg/catalyst/overlay
 stage4/fsscript: /home/luna/.foxpkg/catalyst/stage4-openrc.sh
