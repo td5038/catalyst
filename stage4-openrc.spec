@@ -28,6 +28,7 @@ stage4/use:
 	video_cards_vmware
 stage4/packages:
 	app-admin/sudo
+	app-admin/sysklogd
 	app-containers/crun
 	app-containers/distrobox
 	app-containers/podman
@@ -46,10 +47,12 @@ stage4/packages:
 	media-fonts/fonts-meta
 	media-libs/mesa
 	net-fs/samba
+	net-misc/chrony
 	net-print/cups
 	sys-apps/flatpak
 	sys-apps/iproute2
 	sys-apps/lsb-release
+	sys-apps/mlocate
 	sys-apps/xdg-desktop-portal-gtk
 	sys-block/gparted
 	sys-boot/grub
@@ -58,7 +61,6 @@ stage4/packages:
 	sys-fs/cryptsetup
 	sys-fs/dmraid
 	sys-fs/dosfstools
-	sys-fs/e2fsprogs
 	sys-fs/e2fsprogs
 	sys-fs/exfatprogs
 	sys-fs/f2fs-tools
@@ -79,16 +81,20 @@ stage4/packages:
 	sys-fs/xfsprogs
 	sys-kernel/gentoo-kernel-bin
 	sys-kernel/linux-firmware
+	sys-process/cronie
 stage4/rcadd:
 	cupsd|default
+	cronie|default
+	chronyd|default
 	display-manager|default
 	elogind|boot
 	lvm|boot
 	qemu-guest-agent|default
 	sshd|default
+	sysklogd|default
 	spice-vdagent|default
 	udev|sysinit
-stage4/empty: /var/tmp /var/cache /var/lock /var/log /var/run /var/spool /tmp 
+stage4/empty: /var/tmp /var/cache /tmp 
 stage4/rm: /usr/share/gdm/autostart/LoginWindow/spice-vdagent.desktop /usr/share/gdm/greeter/autostart/spice-vdagent.desktop
 stage4/root_overlay: /home/luna/.foxpkg/catalyst/overlay
 stage4/fsscript: /home/luna/.foxpkg/catalyst/stage4-openrc.sh
