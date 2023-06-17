@@ -32,6 +32,7 @@ stage4/packages:
 	app-containers/distrobox
 	app-containers/podman
 	app-editors/nano
+	app-emulation/qemu-guest-agent
 	app-emulation/spice-vdagent
 	dev-util/wayland-scanner
 	dev-vcs/git
@@ -83,9 +84,11 @@ stage4/rcadd:
 	display-manager|default
 	elogind|boot
 	lvm|boot
+	qemu-guest-agent|default
 	sshd|default
 	spice-vdagent|default
 	udev|sysinit
-stage4/empty: /var/tmp /var/cache /var/lock /var/log /var/run /var/spool /tmp
+stage4/empty: /var/tmp /var/cache /var/lock /var/log /var/run /var/spool /tmp 
+stage4/rm: /usr/share/gdm/autostart/LoginWindow/spice-vdagent.desktop /usr/share/gdm/greeter/autostart/spice-vdagent.desktop
 stage4/root_overlay: /home/luna/.foxpkg/catalyst/overlay
 stage4/fsscript: /home/luna/.foxpkg/catalyst/stage4-openrc.sh
