@@ -52,6 +52,7 @@ stage4/packages:
 	sys-apps/flatpak
 	sys-apps/iproute2
 	sys-apps/lsb-release
+	sys-apps/merge-usr
 	sys-apps/mlocate
 	sys-apps/xdg-desktop-portal-gtk
 	sys-block/gparted

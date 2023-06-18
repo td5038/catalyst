@@ -1,4 +1,5 @@
 #!/bin/bash
+merge-usr
 dracut --force -a "lvm dmsquash-live"
 useradd xenia
 groupadd wheel
