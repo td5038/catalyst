@@ -31,7 +31,7 @@ GRUB_DISABLE_OS_PROBER=true
 # GRUB_CMDLINE_LINUX="init=/usr/lib/systemd/systemd"
 
 # Append parameters to the linux kernel command line for non-recovery entries
-GRUB_CMDLINE_LINUX_DEFAULT="rd.live.squashimg=root.img rd.live.dir=/ rd.live.overlay.overlayfs=0 root=live:/dev/vg0/roots"
+GRUB_CMDLINE_LINUX_DEFAULT="rd.live.squashimg=root.img rd.live.dir=/ rd.live.overlay.overlayfs=0 root=live:/dev/disk/by-label/ROOTS"
 
 # Uncomment to disable graphical terminal (grub-pc only)
 #GRUB_TERMINAL=console

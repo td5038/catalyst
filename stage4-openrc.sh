@@ -12,4 +12,5 @@ cp /boot/vmlinuz* /boot/vmlinuz
 cp /boot/initramfs* /boot/initramfs.img
 cp /boot/System* /boot/System.map
 cp /boot/config* /boot/config
+
 flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
