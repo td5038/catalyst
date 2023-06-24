@@ -104,5 +104,5 @@ stage4/rm:
 	/boot/vmlinuz?*
 	/boot/config?*
 	/boot/System.map?*
-stage4/root_overlay: /home/luna/.foxpkg/catalyst/overlay
-stage4/fsscript: /home/luna/.foxpkg/catalyst/stage4-openrc.sh
+stage4/root_overlay: [CATALYST_DIR]overlay
+stage4/fsscript: [CATALYST_DIR]stage4-openrc.sh
