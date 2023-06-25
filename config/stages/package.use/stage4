@@ -1,4 +1,4 @@
-sys-boot/grub device-mapper
+sys-boot/grub device-mapper libzfs
 sys-fs/lvm2 thin
 sys-libs/pam -filecaps
 media-libs/libsndfile minimal
@@ -8,3 +8,4 @@ media-libs/mesa xa
 app-containers/podman rootless
 media-video/pipewire lv2 jack-sdk sound-server
 net-fs/samba cups
+sys-fs/zfs rootfs

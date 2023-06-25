@@ -12,6 +12,7 @@ stage4/use:
 	-gnome-online-accounts
 	-kde
 	-qt5
+	dist-kernel
 	fuse
 	lvm
 	networkmanager
@@ -80,6 +81,8 @@ stage4/packages:
 	sys-fs/reiserfsprogs
 	sys-fs/squashfs-tools
 	sys-fs/xfsprogs
+	sys-fs/zfs
+	sys-fs/zfs-kmod
 	sys-kernel/gentoo-kernel-bin
 	sys-kernel/linux-firmware
 	sys-process/cronie
@@ -95,6 +98,8 @@ stage4/rcadd:
 	sysklogd|default
 	spice-vdagent|default
 	udev|sysinit
+	zfs-import|boot
+	zfs-mount|boot
 stage4/empty: /var/tmp /var/cache /tmp 
 stage4/rm: 
 	/usr/share/gdm/autostart/LoginWindow/spice-vdagent.desktop
