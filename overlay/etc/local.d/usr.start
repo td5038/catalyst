@@ -1,2 +1,3 @@
-[ ! -d "/overlay/usr" ] && mkdir /overlay/{usr,usrw}
-mount -t overlay overlay -o lowerdir=/usr,upperdir=/overlay/usr,workdir=/overlay/usrw,ro /usr
+#!/bin/bash
+
+mount -o remount,ro /usr

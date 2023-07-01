@@ -1,7 +1,1 @@
 LABEL=EFI		/boot/efi	vfat		noauto,noatime		0 2
-LABEL=ROOTS		/roots		ext4		noatime			0 2
-LABEL=OVERLAY		/overlay	ext4		noatime			0 2
-LABEL=HOME		/home		ext4		noatime			0 2
-
-overlay			/var		overlay		lowerdir=/var,upperdir=/overlay/var,workdir=/overlay/varw	0 0
-overlay			/etc		overlay		lowerdir=/etc,upperdir=/overlay/etc,workdir=/overlay/etcw	0 0
