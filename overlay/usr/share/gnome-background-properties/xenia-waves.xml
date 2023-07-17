@@ -2,9 +2,9 @@
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
   <wallpaper deleted="false">
-    <name>Default Background</name>
-    <filename>/usr/share/backgrounds/xenia/busy-l.png</filename>
-    <filename-dark>/usr/share/backgrounds/xenia/busy-d.png</filename-dark>
+    <name>AA Xenia Waves</name>
+    <filename>/usr/share/backgrounds/xenia/waves.svg</filename>
+    <filename-dark>/usr/share/backgrounds/xenia/waves-dark.svg</filename-dark>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#ffffff</pcolor>
