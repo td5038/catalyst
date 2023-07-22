@@ -87,6 +87,7 @@ stage4/packages:
 	sys-kernel/linux-firmware
 	sys-process/cronie
 stage4/rcadd:
+	bluetooth|default
 	cupsd|default
 	cronie|default
 	chronyd|default
