@@ -1,39 +1,32 @@
 subarch: amd64
 target: stage4
-version_stamp: systemd
+version_stamp: systemd-@TIMESTAMP@
 rel_type: default
 profile: default/linux/amd64/17.1/desktop/gnome/systemd/merged-usr
-snapshot_treeish: [SNAPSHOT_HASH]
-source_subpath: default/stage3-amd64-systemd-mergedusr
+snapshot: 2023.03.12
+source_subpath: default/stage3-amd64-systemd-@TIMESTAMP@
 compression_mode: pixz
 portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
-repos: /var/db/repos/xenia-overlay
 stage4/use:
 	-gnome-online-accounts
-	wayland
+	-kde
+	-qt5
 	dist-kernel
 	fuse
-	flatpak
-	gstreamer
 	lvm
 	networkmanager
-	nls
 	pipewire
 	pipewire-alsa
 	policykit
 	udev
 	usb
-	screencast
-	video_cards_amdgpu
 	video_cards_intel
 	video_cards_nouveau
 	video_cards_radeon
 	video_cards_radeonsi
 	video_cards_virgl
 	video_cards_vmware
-	vaapi
-	vpx
 	xkb
 stage4/packages:
 	app-admin/sudo
@@ -43,20 +36,15 @@ stage4/packages:
 	app-editors/nano
 	app-emulation/qemu-guest-agent
 	app-emulation/spice-vdagent
-	app-eselect/eselect-repository
 	app-shells/bash-completion
-	dev-util/glib-utils
 	dev-util/wayland-scanner
 	dev-vcs/git
 	gnome-base/gnome-light
 	gnome-extra/gnome-shell-extensions
 	gnome-extra/gnome-software
 	gnome-extra/gnome-tweaks
-	sys-apps/xdg-desktop-portal
 	gui-libs/xdg-desktop-portal-wlr
-	sys-apps/xdg-desktop-portal-gnome
 	media-fonts/fonts-meta
-	media-libs/gstreamer
 	media-libs/mesa
 	media-video/wireplumber
 	net-fs/samba
@@ -66,12 +54,10 @@ stage4/packages:
 	sys-apps/lsb-release
 	sys-apps/mlocate
 	sys-apps/xdg-desktop-portal-gtk
-	sys-auth/fprintd
 	sys-auth/rtkit
 	sys-block/gparted
 	sys-block/io-scheduler-udev-rules
 	sys-boot/grub
-	sys-boot/plymouth
 	sys-fs/bcache-tools
 	sys-fs/btrfs-progs
 	sys-fs/cryptsetup
@@ -97,10 +83,13 @@ stage4/packages:
 	sys-fs/zfs-kmod
 	sys-kernel/gentoo-kernel-bin
 	sys-kernel/linux-firmware
-	sys-power/power-profiles-daemon
-	xenia-tools/xenia-meta
 stage4/empty: /var/tmp /var/cache /tmp 
-stage4/rm:
+stage4/rm: 
+	/etc/machine-id
+	/etc/vconsole.conf
+	/etc/hostname
+	/etc/locale.conf
+	/etc/shadow
 	/boot/initramfs?*.img
 	/boot/vmlinuz?*
 	/boot/config?*
