@@ -43,9 +43,9 @@ stage4/packages:
 	gnome-extra/gnome-shell-extensions
 	gnome-extra/gnome-software
 	gnome-extra/gnome-tweaks
-	gui-libs/xdg-desktop-portal
+	sys-apps/xdg-desktop-portal
 	gui-libs/xdg-desktop-portal-wlr
-	gui-libs/xdg-desktop-portal-gnome
+	sys-apps/xdg-desktop-portal-gnome
 	media-fonts/fonts-meta
 	media-libs/mesa
 	media-video/wireplumber
