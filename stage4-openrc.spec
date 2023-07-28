@@ -52,9 +52,9 @@ stage4/packages:
 	gnome-extra/gnome-software
 	gnome-extra/gnome-tweaks
 	gui-libs/display-manager-init
-	gui-libs/xdg-desktop-portal
+	sys-apps/xdg-desktop-portal
 	gui-libs/xdg-desktop-portal-wlr
-	gui-libs/xdg-desktop-portal-gnome
+	sys-apps/xdg-desktop-portal-gnome
 	media-fonts/fonts-meta
 	media-libs/gstreamer
 	media-libs/mesa
@@ -67,7 +67,6 @@ stage4/packages:
 	sys-apps/merge-usr
 	sys-apps/mlocate
 	sys-apps/xdg-desktop-portal-gtk
-	sys-auth/fprintd
 	sys-auth/rtkit
 	sys-block/gparted
 	sys-boot/grub
