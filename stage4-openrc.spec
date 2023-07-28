@@ -11,7 +11,6 @@ portage_prefix: releng
 repos: /var/db/repos/xenia-overlay
 stage4/use:
 	-gnome-online-accounts
-	wayland
 	dist-kernel
 	fuse
 	flatpak
@@ -25,14 +24,12 @@ stage4/use:
 	udev
 	usb
 	screencast
-	video_cards_amdgpu
 	video_cards_intel
 	video_cards_nouveau
 	video_cards_radeon
 	video_cards_radeonsi
 	video_cards_virgl
 	video_cards_vmware
-	vaapi
 	vpx
 	xkb
 stage4/packages:
@@ -55,9 +52,9 @@ stage4/packages:
 	gnome-extra/gnome-software
 	gnome-extra/gnome-tweaks
 	gui-libs/display-manager-init
-	sys-apps/xdg-desktop-portal
+	gui-libs/xdg-desktop-portal
 	gui-libs/xdg-desktop-portal-wlr
-	sys-apps/xdg-desktop-portal-gnome
+	gui-libs/xdg-desktop-portal-gnome
 	media-fonts/fonts-meta
 	media-libs/gstreamer
 	media-libs/mesa
