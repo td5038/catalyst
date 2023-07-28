@@ -9,3 +9,5 @@ app-containers/podman rootless
 media-video/pipewire lv2 jack-sdk sound-server
 net-fs/samba cups
 sys-fs/zfs rootfs
+net-misc/networkmanager connection-sharing
+net-wireless/wpa_supplicant ap

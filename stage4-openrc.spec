@@ -10,8 +10,6 @@ portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
 stage4/use:
 	-gnome-online-accounts
-	-kde
-	-qt5
 	dist-kernel
 	fuse
 	lvm
@@ -21,12 +19,15 @@ stage4/use:
 	policykit
 	udev
 	usb
+	screencast
 	video_cards_intel
 	video_cards_nouveau
 	video_cards_radeon
 	video_cards_radeonsi
 	video_cards_virgl
 	video_cards_vmware
+	vpx
+	xkb
 stage4/packages:
 	app-admin/sudo
 	app-admin/sysklogd
@@ -44,7 +45,9 @@ stage4/packages:
 	gnome-extra/gnome-software
 	gnome-extra/gnome-tweaks
 	gui-libs/display-manager-init
+	gui-libs/xdg-desktop-portal
 	gui-libs/xdg-desktop-portal-wlr
+	gui-libs/xdg-desktop-portal-gnome
 	media-fonts/fonts-meta
 	media-libs/mesa
 	net-fs/samba
