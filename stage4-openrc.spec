@@ -41,9 +41,7 @@ stage4/packages:
 	app-editors/nano
 	app-emulation/qemu-guest-agent
 	app-emulation/spice-vdagent
-	app-eselect/eselect-repository
 	app-shells/bash-completion
-	dev-util/glib-utils
 	dev-util/wayland-scanner
 	dev-vcs/git
 	gnome-base/gnome-light
