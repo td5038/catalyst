@@ -11,6 +11,7 @@ portage_prefix: releng
 repos: /var/db/repos/xenia-overlay
 stage4/use:
 	-gnome-online-accounts
+	wayland
 	dist-kernel
 	fuse
 	flatpak
@@ -30,6 +31,7 @@ stage4/use:
 	video_cards_radeonsi
 	video_cards_virgl
 	video_cards_vmware
+	vaapi
 	vpx
 	xkb
 stage4/packages:

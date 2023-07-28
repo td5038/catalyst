@@ -10,8 +10,11 @@ portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
 stage4/use:
 	-gnome-online-accounts
+	wayland
 	dist-kernel
 	fuse
+	flatpak
+	gstreamer
 	lvm
 	networkmanager
 	pipewire
@@ -26,6 +29,7 @@ stage4/use:
 	video_cards_radeonsi
 	video_cards_virgl
 	video_cards_vmware
+	vaapi
 	vpx
 	xkb
 stage4/packages:
@@ -47,6 +51,7 @@ stage4/packages:
 	gui-libs/xdg-desktop-portal-wlr
 	sys-apps/xdg-desktop-portal-gnome
 	media-fonts/fonts-meta
+	media-libs/gstreamer
 	media-libs/mesa
 	media-video/wireplumber
 	net-fs/samba
