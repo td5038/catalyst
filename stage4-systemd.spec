@@ -8,6 +8,7 @@ source_subpath: default/stage3-amd64-systemd-@TIMESTAMP@
 compression_mode: pixz
 portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
+repos: /var/db/repos/xenia-overlay
 stage4/use:
 	-gnome-online-accounts
 	wayland
@@ -90,6 +91,8 @@ stage4/packages:
 	sys-fs/zfs-kmod
 	sys-kernel/gentoo-kernel-bin
 	sys-kernel/linux-firmware
+	sys-power/power-profiles-daemon
+	xenia-tools/foxsnapshot
 stage4/empty: /var/tmp /var/cache /tmp 
 stage4/rm: 
 	/etc/machine-id

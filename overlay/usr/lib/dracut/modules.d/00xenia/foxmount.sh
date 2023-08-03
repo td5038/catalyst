@@ -22,6 +22,14 @@ echo "--- foxmount ---"
 echo "foxmount: Mounting roots"
 mount -L ROOTS /sysroot/roots
 
+echo "foxmount: Checking for config"
+if [ -f "/sysroot/roots/foxmount.sh" ]; then
+    echo "foxmount: Running config"
+    /bin/bash /sysroot/roots/foxmount.sh
+    exit
+fi
+
+
 if [[ $(get_filesystem OVERLAY) != "" ]]
 then
     echo "foxmount: Overlays on label, traditional FS layout"

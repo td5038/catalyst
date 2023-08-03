@@ -1,5 +1,5 @@
 #!/bin/bash
-dracut --force -a "lvm dmsquash-live"
+dracut --force --no-hostonly --kver $(ls /lib/modules/)
 groupadd wheel
 chown root:root /etc/sudoers
 
