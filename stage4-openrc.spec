@@ -8,6 +8,7 @@ source_subpath: default/stage3-amd64-openrc-@TIMESTAMP@
 compression_mode: pixz
 portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
+portage_overlay: /var/db/repos/xenia-overlay
 stage4/use:
 	-gnome-online-accounts
 	wayland
@@ -95,7 +96,9 @@ stage4/packages:
 	sys-fs/zfs-kmod
 	sys-kernel/gentoo-kernel-bin
 	sys-kernel/linux-firmware
+	sys-power/power-profiles-daemon
 	sys-process/cronie
+	xenia-tools/foxsnapshot
 stage4/rcadd:
 	bluetooth|default
 	cupsd|default
