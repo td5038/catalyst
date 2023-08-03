@@ -35,8 +35,17 @@ recovery() {
     # We need a tmpfs as an upper dir along with the read-only overlay, otherwise OpenRC won't boot - so we create that and mount a tmpfs
     # Lastly, we mount the overlay with the .recovery acting as a read-only overlay and the tmpfs as the read-write part.
 
-    [ ! -d /sysroot/roots/.recovery ] && mkdir /sysroot/roots/.recovery/
-    mount -t tmpfs tmpfs /sysroot/roots/.recovery/
+echo "foxmount: Checking for config"
+if [ -f "/sysroot/roots/foxmount.sh" ]; then
+    echo "foxmount: Running config"
+    /bin/bash /sysroot/roots/foxmount.sh
+    exit
+fi
+
+
+if [[ $(get_filesystem OVERLAY) != "" ]]
+then
+    echo "foxmount: Overlays on label, traditional FS layout"
 
     cd /sysroot/.recovery && for d in */ ; do
         mkdir -p /sysroot/roots/.recovery/.$d
