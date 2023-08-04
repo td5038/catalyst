@@ -1,5 +1,5 @@
 # !/bin/bash
-
+(
 etc_path="/sysroot/overlay"
 var_path="/sysroot/overlay"
 usr_path="/sysroot/overlay"
@@ -17,15 +17,30 @@ get_filesystem() {
     echo "$filesystem"
 }
 
+recovery() {
+    echo "foxmount: Unmounting overlays"
+    umount -l /sysroot/usr
+    umount -l /sysroot/etc
+    umount -l /sysroot/var
+    echo "foxmount: Mounting recovery"
+    mount -t overlay overlay -o lowerdir=/:/.recovery /
+}
+
 echo "--- foxmount ---"
 
 echo "foxmount: Mounting roots"
 mount -L ROOTS /sysroot/roots
 
+echo "foxmount: Checking for recovery"
+for p in $(getargs recovery=); do
+    if [ $p = "true" ]; then
+        recovery
+        exit
+
 echo "foxmount: Checking for config"
 if [ -f "/sysroot/roots/foxmount.sh" ]; then
     echo "foxmount: Running config"
-    /bin/bash /sysroot/roots/foxmount.sh
+    source /sysroot/roots/foxmount.sh
     exit
 fi
 
@@ -63,6 +78,7 @@ then
     # cow: please help mount ZFS?
 else
     echo "foxmount: FATAL: could not find overlays!"
+    recovery
     exit
 fi
 
@@ -76,8 +92,14 @@ echo "foxmount: Creating overlay work directories if they don't exist"
 [ ! -d "${var_path}/varw" ] && mkdir ${var_path}/varw
 [ ! -d "${usr_path}/usrw" ] && mkdir ${usr_path}/usrw
 
+echo "foxmount: Checking for foxsnapshot revert"
+if [ -s /sysroot/roots/.revert ]; then
+    btrfs subvolume delete /sysroot/overlay/usr
+    btrfs subvolume snapshot /sysroot/roots/.foxsnapshot/$(cat /sysroot/roots/.revert) /sysroot/overlay/usr
+
 echo "foxmount: Mounting overlays on /sysroot"
+mount -t overlay overlay -o lowerdir=/sysroot/usr,upperdir=${usr_path}/usr,workdir=${usr_path}/usrw,ro /sysroot/usr
 mount -t overlay overlay -o lowerdir=/sysroot/etc,upperdir=${etc_path}/etc,workdir=${etc_path}/etcw,rw /sysroot/etc
 mount -t overlay overlay -o lowerdir=/sysroot/var,upperdir=${var_path}/var,workdir=${var_path}/varw,rw /sysroot/var
-mount -t overlay overlay -o lowerdir=/sysroot/usr,upperdir=${usr_path}/usr,workdir=${usr_path}/usrw,ro /sysroot/usr
 echo "foxmount: Finished mounting overlays"
+) |& tee /sysroot/roots/.foxmount.log
