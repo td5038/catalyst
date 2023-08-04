@@ -4,6 +4,7 @@ echo "--- foxmount ---"
 
 echo "foxmount: Mounting roots"
 mount -L ROOTS /sysroot/roots
+touch /sysroot/roots/.foxmount.log
 
 (
 etc_path="/sysroot/overlay"
@@ -38,6 +39,7 @@ for p in $(getargs recovery=); do
         recovery
         exit
     fi
+done
 
 echo "foxmount: Checking for config"
 if [ -f "/sysroot/roots/foxmount.sh" ]; then
