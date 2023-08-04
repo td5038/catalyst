@@ -1,6 +1,9 @@
 #!/bin/bash
 merge-usr
 dracut --force --no-hostonly --kver $(ls /lib/modules/)
+useradd xenia
+groupadd wheel
+usermod -aG wheel xenia
 echo "root:87658765XeniaLinux" | chpasswd
 chown root:root /etc/sudoers
 
@@ -29,21 +32,5 @@ cp /boot/config* /boot/config
 
 flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 
-#eselect repository add xenia-overlay git https://gitlab.com/xenia-group/xenia-overlay.git
-#emaint sync --repo xenia-overlay
-
-chown --from=1001:1001 root:root /etc -R
-chown --from=1001:1001 root:root /
-chown --from=1001:1001 root:root /boot -R
-chown --from=1001:1001 root:root /overlay -R
-chown --from=1001:1001 root:root /roots -R
-chown --from=1001:1001 root:root /usr -R
-chown --from=1001:1001 root:root /var -R
-
-chown --from=1000:1000 root:root /etc -R
-chown --from=1000:1000 root:root /
-chown --from=1000:1000 root:root /boot -R
-chown --from=1000:1000 root:root /overlay -R
-chown --from=1000:1000 root:root /roots -R
-chown --from=1000:1000 root:root /usr -R
-chown --from=1000:1000 root:root /var -R
+eselect repository add xenia-overlay git https://gitlab.com/xenia-group/xenia-overlay.git
+emaint sync --repo xenia-overlay
