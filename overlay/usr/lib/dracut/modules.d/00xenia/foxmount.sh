@@ -1,4 +1,10 @@
 # !/bin/bash
+
+echo "--- foxmount ---"
+
+echo "foxmount: Mounting roots"
+mount -L ROOTS /sysroot/roots
+
 (
 etc_path="/sysroot/overlay"
 var_path="/sysroot/overlay"
@@ -26,18 +32,12 @@ recovery() {
     mount -t overlay overlay -o lowerdir=/:/.recovery /
 }
 
-echo "--- foxmount ---"
-
-    # Okay - this is a bit stupid but let me try and explain this.
-    # Mounting an overlay over sysroot itself didn't work - so we mount every directory as an overlay
-    # We need a tmpfs as an upper dir along with the read-only overlay, otherwise OpenRC won't boot - so we create that and mount a tmpfs
-    # Lastly, we mount the overlay with the .recovery acting as a read-only overlay and the tmpfs as the read-write part.
-
 echo "foxmount: Checking for recovery"
 for p in $(getargs recovery=); do
     if [ $p = "true" ]; then
         recovery
         exit
+    fi
 
 echo "foxmount: Checking for config"
 if [ -f "/sysroot/roots/foxmount.sh" ]; then
@@ -102,6 +102,7 @@ echo "foxmount: Checking for foxsnapshot revert"
 if [ -s /sysroot/roots/.revert ]; then
     btrfs subvolume delete /sysroot/overlay/usr
     btrfs subvolume snapshot /sysroot/roots/.foxsnapshot/$(cat /sysroot/roots/.revert) /sysroot/overlay/usr
+fi
 
 echo "foxmount: Mounting overlays on /sysroot"
 mount -t overlay overlay -o lowerdir=/sysroot/usr,upperdir=${usr_path}/usr,workdir=${usr_path}/usrw,ro /sysroot/usr
