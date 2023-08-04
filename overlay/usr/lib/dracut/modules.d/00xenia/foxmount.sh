@@ -6,7 +6,6 @@ echo "foxmount: Mounting roots"
 mount -L ROOTS /sysroot/roots
 touch /sysroot/roots/.foxmount.log
 
-(
 etc_path="/sysroot/overlay"
 var_path="/sysroot/overlay"
 usr_path="/sysroot/overlay"
@@ -111,4 +110,3 @@ mount -t overlay overlay -o lowerdir=/sysroot/usr,upperdir=${usr_path}/usr,workd
 mount -t overlay overlay -o lowerdir=/sysroot/etc,upperdir=${etc_path}/etc,workdir=${etc_path}/etcw,rw /sysroot/etc
 mount -t overlay overlay -o lowerdir=/sysroot/var,upperdir=${var_path}/var,workdir=${var_path}/varw,rw /sysroot/var
 echo "foxmount: Finished mounting overlays"
-) |& tee /sysroot/roots/.foxmount.log
