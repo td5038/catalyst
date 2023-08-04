@@ -42,6 +42,7 @@ stage4/packages:
 	app-editors/nano
 	app-emulation/qemu-guest-agent
 	app-emulation/spice-vdagent
+	app-eselect/eselect-repository
 	app-shells/bash-completion
 	dev-util/wayland-scanner
 	dev-vcs/git
@@ -80,7 +81,6 @@ stage4/packages:
 	sys-fs/fuse-exfat
 	sys-fs/fuse-overlayfs
 	sys-fs/fuseiso
-	sys-fs/genfstab
 	sys-fs/go-mtpfs
 	sys-fs/jfsutils
 	sys-fs/lsscsi
@@ -89,7 +89,6 @@ stage4/packages:
 	sys-fs/mdadm
 	sys-fs/multipath-tools
 	sys-fs/ntfs3g
-	sys-fs/reiserfsprogs
 	sys-fs/squashfs-tools
 	sys-fs/xfsprogs
 	sys-fs/zfs
