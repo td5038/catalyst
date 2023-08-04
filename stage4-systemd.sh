@@ -28,5 +28,5 @@ cp /boot/config* /boot/config
 
 flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 
-eselect repository add xenia-overlay git https://gitlab.com/xenia-group/xenia-overlay.git
-emaint sync --repo xenia-overlay
+#eselect repository add xenia-overlay git https://gitlab.com/xenia-group/xenia-overlay.git
+#emaint sync --repo xenia-overlay
