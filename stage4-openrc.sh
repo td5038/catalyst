@@ -4,6 +4,7 @@ dracut --force --no-hostonly --kver $(ls /lib/modules/)
 useradd recovery
 useradd xenia
 usermod -aG wheel xenia
+usermod -aG wheel recovery
 echo "xenia:87658765XeniaLinux" | chpasswd
 chown root:root /etc/sudoers
 
