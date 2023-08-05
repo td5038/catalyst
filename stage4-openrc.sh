@@ -1,10 +1,10 @@
 #!/bin/bash
 merge-usr
 dracut --force --no-hostonly --kver $(ls /lib/modules/)
+useradd recovery
 useradd xenia
-groupadd wheel
 usermod -aG wheel xenia
-echo "root:87658765XeniaLinux" | chpasswd
+echo "xenia:87658765XeniaLinux" | chpasswd
 chown root:root /etc/sudoers
 
 cp /etc/passwd /.recovery/etc/passwd

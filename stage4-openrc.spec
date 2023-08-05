@@ -126,4 +126,3 @@ stage4/rm:
 	/boot/System.map?*
 stage4/root_overlay: [CATALYST_DIR]overlay
 stage4/fsscript: [CATALYST_DIR]stage4-openrc.sh
-stage4/users: recovery
