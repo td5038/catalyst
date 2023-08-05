@@ -101,6 +101,7 @@ echo "foxmount: Checking for foxsnapshot revert"
 if [ -s /sysroot/roots/.revert ]; then
     btrfs subvolume delete /sysroot/overlay/usr
     btrfs subvolume snapshot /sysroot/roots/.foxsnapshot/$(cat /sysroot/roots/.revert) /sysroot/overlay/usr
+    rm /sysroot/roots/.revert
 fi
 
 echo "foxmount: Mounting overlays on /sysroot"
