@@ -4,7 +4,6 @@ echo "--- foxmount ---"
 
 echo "foxmount: Mounting roots"
 mount -L ROOTS /sysroot/roots
-touch /sysroot/roots/.foxmount.log
 
 etc_path="/sysroot/overlay"
 var_path="/sysroot/overlay"
