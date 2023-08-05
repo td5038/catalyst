@@ -1,6 +1,6 @@
 #!/bin/bash
 dracut --force --no-hostonly --kver $(ls /lib/modules/)
-groupadd wheel
+useradd recovery
 chown root:root /etc/sudoers
 
 systemctl enable bluetooth
