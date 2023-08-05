@@ -4,6 +4,8 @@ useradd recovery
 usermod -aG wheel recovery
 chown root:root /etc/sudoers
 
+# append to /etc/passwd and /etc/shadow, add to recovery
+
 systemctl enable bluetooth
 systemctl enable NetworkManager
 systemctl enable cups
