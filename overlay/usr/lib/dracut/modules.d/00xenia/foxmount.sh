@@ -28,8 +28,8 @@ recovery() {
     umount -l /sysroot/etc
     umount -l /sysroot/var
     echo "foxmount: Mounting recovery"
-    cd /.recovery && for d in */ ; do      
-        mount -t overlay overlay -o lowerdir=/$d:/.recovery/$d /$d
+    cd /sysroot/.recovery && for d in */ ; do      
+        mount -t overlay overlay -o lowerdir=/sysroot/$d:/sysroot/.recovery/$d /sysroot/$d
     done
 
 }
