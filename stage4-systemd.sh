@@ -1,13 +1,14 @@
 #!/bin/bash
 dracut --force --no-hostonly --kver $(ls /lib/modules/)
-useradd recovery
-usermod -aG wheel recovery
 chown root:root /etc/sudoers
 
 cp /etc/passwd /.recovery/etc/passwd
 cp /etc/shadow /.recovery/etc/shadow
 
+echo "recovery:x:1000:1000::/home/recovery:/bin/bash" >> /.recovery/etc/passwd
 echo "recovery:$6$ovJXS/P4rKaURNaD$IUmaP2JW5uiJgrFVr31bEMb6kEF.ARL.x23m.qvyJ3.oRRbJ1qQ/pU5R2VocEzunYqSGF/YvLFGqF5gn0BQY90:19574::::::" >> /.recovery/etc/shadow
+
+sed s/wheel:x:10:root/wheel:x:10:root,recovery/ /etc/group > /.recovery/etc/group
 
 systemctl enable bluetooth
 systemctl enable NetworkManager

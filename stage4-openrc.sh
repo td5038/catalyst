@@ -1,12 +1,16 @@
 #!/bin/bash
 merge-usr
 dracut --force --no-hostonly --kver $(ls /lib/modules/)
-useradd recovery
-useradd xenia
-usermod -aG wheel xenia
-usermod -aG wheel recovery
-echo "xenia:87658765XeniaLinux" | chpasswd
+echo "root:87658765XeniaLinux" | chpasswd
 chown root:root /etc/sudoers
+
+cp /etc/passwd /.recovery/etc/passwd
+cp /etc/shadow /.recovery/etc/shadow
+
+echo "recovery:x:1000:1000::/home/recovery:/bin/bash" >> /.recovery/etc/passwd
+echo "recovery:$6$ovJXS/P4rKaURNaD$IUmaP2JW5uiJgrFVr31bEMb6kEF.ARL.x23m.qvyJ3.oRRbJ1qQ/pU5R2VocEzunYqSGF/YvLFGqF5gn0BQY90:19574::::::" >> /.recovery/etc/shadow
+
+sed s/wheel:x:10:root/wheel:x:10:root,recovery/ /etc/group > /.recovery/etc/group
 
 rm /boot/*.old
 
