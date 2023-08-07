@@ -68,6 +68,7 @@ stage4/packages:
 	sys-apps/merge-usr
 	sys-apps/mlocate
 	sys-apps/xdg-desktop-portal-gtk
+	sys-auth/fprintd
 	sys-auth/rtkit
 	sys-block/gparted
 	sys-boot/grub
