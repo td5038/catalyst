@@ -28,9 +28,18 @@ recovery() {
     umount -l /sysroot/etc
     umount -l /sysroot/var
     echo "foxmount: Mounting recovery"
+
+    # Okay - this is a bit stupid but let me try and explain this.
+    # Mounting an overlay over sysroot itself didn't work - so we mount every directory as an overlay
+    # We need a tmpfs as an upper dir along with the read-only overlay, otherwise OpenRC won't boot - so we create that and mount a tmpfs
+    # Lastly, we mount the overlay with the .recovery acting as a read-only overlay and the tmpfs as the read-write part.
+
     cd /sysroot/.recovery && for d in */ ; do
         [ ! -d /sysroot/roots/.recovery/.$d ] && mkdir -p /sysroot/roots/.recovery/.$d
-        mount -t overlay overlay -o lowerdir=/sysroot/$d,upperdir=/sysroot/.recovery/$d,workdir=/sysroot/roots/.recovery/.$d /sysroot/$d
+        [ ! -d /sysroot/roots/.recovery/.w_$d ] && mkdir -p /sysroot/roots/.recovery/.w_$d
+        mount -t tmpfs tmpfs /sysroot/roots/.recovery/.$d
+
+        mount -t overlay overlay -o lowerdir=/sysroot/.recovery/$d:/sysroot/$d,upperdir=/sysroot/roots/.recovery/.$d,workdir=/sysroot/roots/.recovery/.w_$d /sysroot/$d
     done
 }
 
