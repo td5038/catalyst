@@ -42,7 +42,6 @@ chown --from=1001:1001 root:root /etc -R
 chown --from=1001:1001 root:root /
 chown --from=1001:1001 root:root /boot -R
 chown --from=1001:1001 root:root /overlay -R
-chown --from=1001:1001 root:root /.recovery -R
 chown --from=1001:1001 root:root /roots -R
 chown --from=1001:1001 root:root /usr -R
 chown --from=1001:1001 root:root /var -R
