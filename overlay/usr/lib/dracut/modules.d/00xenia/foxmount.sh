@@ -29,8 +29,8 @@ recovery() {
     umount -l /sysroot/var
     echo "foxmount: Mounting recovery"
     cd /sysroot/.recovery && for d in */ ; do
-        [ ! -d .$d ] && mkdir .$d
-        mount -t overlay overlay -o lowerdir=/sysroot/$d,upperdir=/sysroot/.recovery/$d,workdir=/sysroot/.recovery/.$d /sysroot/$d
+        [ ! -d /sysroot/roots/.recovery/.$d ] && mkdir -p /sysroot/roots/.recovery/.$d
+        mount -t overlay overlay -o lowerdir=/sysroot/$d,upperdir=/sysroot/.recovery/$d,workdir=/sysroot/roots/.recovery/.$d /sysroot/$d
     done
 }
 
