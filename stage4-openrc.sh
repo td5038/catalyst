@@ -23,3 +23,12 @@ flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 
 #eselect repository add xenia-overlay git https://gitlab.com/xenia-group/xenia-overlay.git
 #emaint sync --repo xenia-overlay
+
+chown --from=1001:1001 root:root /etc -R
+chown --from=1001:1001 root:root /
+chown --from=1001:1001 root:root /boot -R
+chown --from=1001:1001 root:root /overlay -R
+chown --from=1001:1001 root:root /.recovery -R
+chown --from=1001:1001 root:root /roots -R
+chown --from=1001:1001 root:root /usr -R
+chown --from=1001:1001 root:root /var -R
