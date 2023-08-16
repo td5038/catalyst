@@ -9,6 +9,9 @@ echo "recovery:x:1000:1000::/home/recovery:/bin/bash" >> /.recovery/etc/passwd
 echo "recovery:$6$ovJXS/P4rKaURNaD$IUmaP2JW5uiJgrFVr31bEMb6kEF.ARL.x23m.qvyJ3.oRRbJ1qQ/pU5R2VocEzunYqSGF/YvLFGqF5gn0BQY90:19574::::::" >> /.recovery/etc/shadow
 
 sed s/wheel:x:10:root/wheel:x:10:root,recovery/ /etc/group > /.recovery/etc/group
+echo "recovery:x:1000:" > /.recovery/etc/group
+
+chown 1000:1000 -R /home/recovery
 
 systemctl enable bluetooth
 systemctl enable NetworkManager
