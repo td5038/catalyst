@@ -11,7 +11,7 @@ echo "recovery:$6$ovJXS/P4rKaURNaD$IUmaP2JW5uiJgrFVr31bEMb6kEF.ARL.x23m.qvyJ3.oR
 sed s/wheel:x:10:root/wheel:x:10:root,recovery/ /etc/group > /.recovery/etc/group
 echo "recovery:x:1000:" >> /.recovery/etc/group
 
-chown 1000:1000 -R /home/recovery
+chown 1000:1000 -R /.recovery/home/recovery
 
 systemctl enable bluetooth
 systemctl enable NetworkManager
