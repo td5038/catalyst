@@ -34,6 +34,7 @@ recovery() {
     # We need a tmpfs as an upper dir along with the read-only overlay, otherwise OpenRC won't boot - so we create that and mount a tmpfs
     # Lastly, we mount the overlay with the .recovery acting as a read-only overlay and the tmpfs as the read-write part.
 
+    [ ! -d /sysroot/roots/.recovery ] && mkdir /sysroot/roots/.recovery/
     mount -t tmpfs tmpfs /sysroot/roots/.recovery/
 
     cd /sysroot/.recovery && for d in */ ; do
