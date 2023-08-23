@@ -1,5 +1,6 @@
 gnome-extra/gnome-software ~amd64
 gui-libs/gtk ~amd64
 gui-libs/libadwaita ~amd64
+sys-boot/plymouth-openrc-plugin ~amd64
 sys-fs/go-mtpfs ~amd64
 xenia-tools/* **

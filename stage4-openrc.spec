@@ -70,6 +70,8 @@ stage4/packages:
 	sys-auth/rtkit
 	sys-block/gparted
 	sys-boot/grub
+	sys-boot/plymouth
+	sys-boot/plymouth-openrc-plugin
 	sys-fs/bcache-tools
 	sys-fs/btrfs-progs
 	sys-fs/cryptsetup
@@ -117,7 +119,6 @@ stage4/empty: /var/tmp /var/cache /tmp
 stage4/rm: 
 	/usr/share/gdm/autostart/LoginWindow/spice-vdagent.desktop
 	/usr/share/gdm/greeter/autostart/spice-vdagent.desktop
-	/usr/share/gnome-background-properties/adwaita.xml
 	/boot/initramfs?*.img
 	/boot/vmlinuz?*
 	/boot/config?*

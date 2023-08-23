@@ -1,5 +1,6 @@
 #!/bin/bash
 dracut --force --no-hostonly --kver $(ls /lib/modules/)
+echo "root:87658765XeniaLinux" | chpasswd
 chown root:root /etc/sudoers
 
 cp /etc/passwd /.recovery/etc/passwd
@@ -25,7 +26,6 @@ systemctl enable zfs.target
 systemctl enable zfs-import-cache
 systemctl enable zfs-mount
 systemctl enable zfs-import.target 
-systemctl enable systemd-firstboot
 
 systemctl --global enable pipewire.socket pipewire-pulse.socket wireplumber.service
 
