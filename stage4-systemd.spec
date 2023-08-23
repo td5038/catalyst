@@ -67,6 +67,7 @@ stage4/packages:
 	sys-block/gparted
 	sys-block/io-scheduler-udev-rules
 	sys-boot/grub
+	sys-boot/plymouth
 	sys-fs/bcache-tools
 	sys-fs/btrfs-progs
 	sys-fs/cryptsetup
@@ -95,12 +96,7 @@ stage4/packages:
 	sys-power/power-profiles-daemon
 	xenia-tools/foxsnapshot
 stage4/empty: /var/tmp /var/cache /tmp 
-stage4/rm: 
-	/etc/machine-id
-	/etc/vconsole.conf
-	/etc/hostname
-	/etc/locale.conf
-	/etc/shadow
+stage4/rm:
 	/boot/initramfs?*.img
 	/boot/vmlinuz?*
 	/boot/config?*
