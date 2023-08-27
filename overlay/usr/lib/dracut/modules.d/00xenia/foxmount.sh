@@ -73,7 +73,8 @@ foxmount() {
 
     elif [[ $(get_filesystem ROOTS) = "btrfs" ]]
     then
-        echo "foxmount: btrfs found"
+        echo "foxmount: btrfs found, remounting with compression"
+        mount -L ROOTS -o remount,compress=zstd /sysroot/roots
 
         echo "foxmount: Mounting overlay subvolume"
         mount -L ROOTS -o subvol=overlay /sysroot/overlay
