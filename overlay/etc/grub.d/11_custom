@@ -13,7 +13,7 @@ menuentry 'Xenia Linux' --class xenia --class gnu-linux --class gnu --class os $
 	insmod gzio
 	insmod squash4
 	echo	'Loading Linux gentoo-dist ...'
-	linux	(loop0)/boot/vmlinuz ro quiet splash rd.live.squashimg=root.img rd.live.dir=/ rd.live.overlay.overlayfs=0 root=live:/dev/disk/by-label/ROOTS recovery=false
+	linux	(loop0)/boot/vmlinuz ro quiet splash rd.live.squashimg=root.img rd.live.dir=/ rd.live.overlay.overlayfs=1 root=live:/dev/disk/by-label/ROOTS recovery=false
 	echo	'Loading initial ramdisk ...'
 	initrd	(loop0)/boot/initramfs.img
 }
@@ -28,7 +28,7 @@ menuentry 'Xenia Linux (Recovery)' --class xenia --class gnu-linux --class gnu -
 	insmod gzio
 	insmod squash4
 	echo	'Loading Linux gentoo-dist ...'
-	linux	(loop0)/boot/vmlinuz ro quiet splash rd.live.squashimg=root.img rd.live.dir=/ rd.live.overlay.overlayfs=0 root=live:/dev/disk/by-label/ROOTS recovery=true
+	linux	(loop0)/boot/vmlinuz ro quiet splash rd.live.squashimg=root.img rd.live.dir=/ rd.live.overlay.overlayfs=1 root=live:/dev/disk/by-label/ROOTS recovery=true
 	echo	'Loading initial ramdisk ...'
 	initrd	(loop0)/boot/initramfs.img
 }
