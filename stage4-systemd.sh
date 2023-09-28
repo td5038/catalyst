@@ -51,3 +51,11 @@ chown --from=1001:1001 root:root /overlay -R
 chown --from=1001:1001 root:root /roots -R
 chown --from=1001:1001 root:root /usr -R
 chown --from=1001:1001 root:root /var -R
+
+chown --from=1000:1000 root:root /etc -R
+chown --from=1000:1000 root:root /
+chown --from=1000:1000 root:root /boot -R
+chown --from=1000:1000 root:root /overlay -R
+chown --from=1000:1000 root:root /roots -R
+chown --from=1000:1000 root:root /usr -R
+chown --from=1000:1000 root:root /var -R
