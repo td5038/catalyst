@@ -14,7 +14,7 @@ On a more serious note, thanks for using Xenia Linux! It means a great deal to u
 'please help i've been trapped at the linux factory and forced to make distros' - Duality, 2023
 """)
     
-elif sys.argv == "--ilymaze":
+elif sys.argv[1] == "--ilymaze":
     print("""
 'I'LL THINK OF SOMETHING' - maze on what to put in this quote
           
