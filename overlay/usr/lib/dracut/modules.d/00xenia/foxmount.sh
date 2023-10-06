@@ -3,7 +3,8 @@
 echo "--- foxmount ---"
 
 echo "foxmount: Mounting roots"
-mount -L ROOTS /sysroot/roots
+mount -L ROOTS /sysroot/roots # probably not necessary, leaving in just in case
+mount -o rw,remount /sysroot/roots
 
 etc_path="/sysroot/overlay"
 var_path="/sysroot/overlay"
@@ -93,6 +94,20 @@ foxmount() {
         /sbin/modprobe zfs
 
         # cow: please help mount ZFS?
+    elif [[ $(get_filesystem XENIA) = "crypto_LUKS" ]]
+    then
+        echo "foxmount: LUKS found"
+        plymouth ask-for-password --command='cryptsetup luksOpen /dev/disk/by-label/XENIA xenia' --prompt='Enter decryption key'
+        echo "foxmount: Mounting overlay subvolume"
+        mount /dev/mapper/xenia -o subvol=overlay,compress=zstd /sysroot/overlay
+
+        echo "foxmount: Mounting home"
+        mount /dev/mapper/xenia -o subvol=home /sysroot/home
+
+        echo "foxmount: Setting overlay paths"
+        etc_path="/sysroot/overlay/etc"
+        var_path="/sysroot/overlay/var"
+        usr_path="/sysroot/overlay/usr"    
     else
         echo "foxmount: FATAL: could not find overlays!"
         recovery
