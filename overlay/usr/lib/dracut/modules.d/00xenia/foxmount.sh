@@ -93,6 +93,20 @@ foxmount() {
         /sbin/modprobe zfs
 
         # cow: please help mount ZFS?
+    elif [[ $(get_filesystem XENIA) = "crypto_LUKS" ]]
+    then
+        echo "foxmount: LUKS found"
+        cryptsetup luksOpen /dev/disk/by-label/XENIA xenia
+        echo "foxmount: Mounting overlay subvolume"
+        mount /dev/mapper/xenia -o subvol=overlay,compress=zstd /sysroot/overlay
+
+        echo "foxmount: Mounting home"
+        mount /dev/mapper/xenia -o subvol=home /sysroot/home
+
+        echo "foxmount: Setting overlay paths"
+        etc_path="/sysroot/overlay/etc"
+        var_path="/sysroot/overlay/var"
+        usr_path="/sysroot/overlay/usr"    
     else
         echo "foxmount: FATAL: could not find overlays!"
         recovery
