@@ -11,3 +11,4 @@ net-fs/samba cups
 sys-fs/zfs rootfs
 net-misc/networkmanager connection-sharing iptables
 net-wireless/wpa_supplicant ap
+sys-devel/binutils gold

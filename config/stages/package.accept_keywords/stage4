@@ -1,6 +1,19 @@
-gnome-extra/gnome-software ~amd64
-gui-libs/gtk ~amd64
-gui-libs/libadwaita ~amd64
-sys-boot/plymouth-openrc-plugin ~amd64
-sys-fs/go-mtpfs ~amd64
+app-containers/distrobox *
+app-emulation/spice-vdagent *
+dev-libs/libjcat *
+gnome-base/gnome-light *
+gnome-extra/gnome-software
+gui-libs/gtk
+gui-libs/libadwaita
+gui-libs/xdg-desktop-portal-wlr *
+media-fonts/* *
+sys-apps/fwupd *
+sys-block/gparted *
+sys-boot/plymouth-openrc-plugin
+sys-fs/exfatprogs *
+sys-fs/go-mtpfs
+sys-fs/fuse-exfat *
+sys-fs/fuseiso *
+sys-fs/go-mtpfs ~*
+sys-fs/mac-fdisk *
 xenia-tools/* **
