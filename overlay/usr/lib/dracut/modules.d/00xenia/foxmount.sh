@@ -97,7 +97,7 @@ foxmount() {
     elif [[ $(get_filesystem XENIA) = "crypto_LUKS" ]]
     then
         echo "foxmount: LUKS found"
-        cryptsetup luksOpen /dev/disk/by-label/XENIA xenia
+        plymouth ask-for-password --command='cryptsetup luksOpen /dev/disk/by-label/XENIA xenia' --prompt='Enter decryption key'
         echo "foxmount: Mounting overlay subvolume"
         mount /dev/mapper/xenia -o subvol=overlay,compress=zstd /sysroot/overlay
 
