@@ -3,7 +3,8 @@
 echo "--- foxmount ---"
 
 echo "foxmount: Mounting roots"
-mount -L ROOTS /sysroot/roots
+mount -L ROOTS /sysroot/roots # probably not necessary, leaving in just in case
+mount -o rw,remount /sysroot/roots
 
 etc_path="/sysroot/overlay"
 var_path="/sysroot/overlay"
