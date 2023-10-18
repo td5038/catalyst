@@ -25,6 +25,7 @@ stage4/use:
 	udev
 	usb
 	screencast
+	video_cards_amdgpu
 	video_cards_intel
 	video_cards_nouveau
 	video_cards_radeon
