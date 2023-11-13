@@ -1,0 +1,5 @@
+[General]
+Name=Xenia Linux
+LogoPath=/usr/share/pixmaps/xenia.svgz 
+Website=https://xenialinux.com/
+UseOSReleaseVersion=true
