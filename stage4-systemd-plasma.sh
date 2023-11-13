@@ -14,8 +14,6 @@ echo "recovery:x:1000:" >> /.recovery/etc/group
 
 chown 1000:1000 -R /.recovery/home/recovery
 
-chown portage:portage /var/cache/distfiles
-
 cp /usr/share/i18n/SUPPORTED /etc/locale.gen
 locale-gen
 

@@ -1,14 +1,14 @@
 subarch: amd64
 target: stage4
-version_stamp: openrc-plasma
+version_stamp: openrc-@TIMESTAMP@
 rel_type: default
 profile: default/linux/amd64/17.1/desktop/plasma
-snapshot_treeish: [SNAPSHOT_HASH]
-source_subpath: default/stage3-amd64-openrc
+snapshot: 2023.03.12
+source_subpath: default/stage3-amd64-openrc-@TIMESTAMP@
 compression_mode: pixz
 portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
-repos: /var/db/repos/xenia-overlay
+portage_overlay: /var/db/repos/xenia-overlay
 stage4/use:
 	crypt
 	desktop-portal
@@ -131,7 +131,7 @@ stage4/packages:
 	sys-kernel/linux-firmware
 	sys-power/power-profiles-daemon
 	sys-process/cronie
-	xenia-tools/xenia-meta
+	xenia-tools/foxsnapshot
 stage4/rcadd:
 	bluetooth|default
 	cupsd|default
