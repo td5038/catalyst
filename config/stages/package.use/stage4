@@ -1,3 +1,7 @@
+dev-qt/qtpositioning geoclue
+media-video/ffmpeg libass
+media-libs/gst-plugins-base theora
+media-plugins/gst-plugins-meta theora v4l
 sys-boot/grub device-mapper libzfs
 sys-fs/lvm2 thin
 sys-libs/pam -filecaps
