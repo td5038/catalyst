@@ -1,14 +1,14 @@
 subarch: amd64
 target: stage4
-version_stamp: openrc-@TIMESTAMP@
+version_stamp: openrc
 rel_type: default
 profile: default/linux/amd64/17.1/desktop/gnome
-snapshot: 2023.03.12
-source_subpath: default/stage3-amd64-openrc-@TIMESTAMP@
+snapshot_treeish: [SNAPSHOT_HASH]
+source_subpath: default/stage3-amd64-openrc
 compression_mode: pixz
 portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
-portage_overlay: /var/db/repos/xenia-overlay
+repos: /var/db/repos/xenia-overlay
 stage4/use:
 	-gnome-online-accounts
 	wayland

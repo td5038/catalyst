@@ -1,15 +1,14 @@
 subarch: arm64
 target: stage4
-version_stamp: systemd-@TIMESTAMP@
-interpreter: /usr/bin/qemu-aarch64
+version_stamp: systemd-arm64
 rel_type: default
 profile: default/linux/arm64/17.0/desktop/gnome/systemd/merged-usr
-snapshot: 2023.09.14
-source_subpath: default/stage3-arm64
+snapshot_treeish: [SNAPSHOT_HASH]
+source_subpath: default/stage3-arm64-systemd-mergedusr
 compression_mode: pixz
 portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
-portage_overlay: /var/db/repos/xenia-overlay
+repos: /var/db/repos/xenia-overlay
 stage4/use:
     -gnome-online-accounts
 	wayland
