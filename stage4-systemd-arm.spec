@@ -95,7 +95,7 @@ stage4/packages:
 	sys-kernel/gentoo-kernel-bin
 	sys-kernel/linux-firmware
 	sys-power/power-profiles-daemon
-	xenia-tools/foxsnapshot
+	xenia-tools/xenia-meta
 stage4/empty: /var/tmp /var/cache /tmp 
 stage4/rm:
 	/boot/initramfs?*.img

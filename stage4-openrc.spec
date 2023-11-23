@@ -103,7 +103,7 @@ stage4/packages:
 	sys-kernel/linux-firmware
 	sys-power/power-profiles-daemon
 	sys-process/cronie
-	xenia-tools/foxsnapshot
+	xenia-tools/xenia-meta
 stage4/rcadd:
 	bluetooth|default
 	cupsd|default
