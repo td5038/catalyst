@@ -16,4 +16,3 @@ sys-fs/fuse-exfat *
 sys-fs/fuseiso *
 sys-fs/go-mtpfs ~*
 sys-fs/mac-fdisk *
-xenia-tools/* **
