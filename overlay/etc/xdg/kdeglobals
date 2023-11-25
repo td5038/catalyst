@@ -1,0 +1,15 @@
+[General]
+ColorScheme=Xenia Light
+Name=Xenia Light
+
+[Icons]
+Theme=breeze
+
+[KDE]
+SingleClick=false
+ChangeCursor=true
+ColorScheme=Breeze
+LookAndFeelPackage=org.xeniagroup.xenialight.desktop
+DefaultLightLookAndFeel=org.xeniagroup.xenialight.desktop
+DefaultDarkLookAndFeel=org.xeniagroup.xeniadark.desktop
+widgetStyle=breeze
