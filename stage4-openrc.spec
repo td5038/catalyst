@@ -1,32 +1,40 @@
 subarch: amd64
 target: stage4
-version_stamp: openrc-@TIMESTAMP@
+version_stamp: openrc
 rel_type: default
 profile: default/linux/amd64/17.1/desktop/gnome
-snapshot: 2023.03.12
-source_subpath: default/stage3-amd64-openrc-@TIMESTAMP@
+snapshot_treeish: [SNAPSHOT_HASH]
+source_subpath: default/stage3-amd64-openrc
 compression_mode: pixz
 portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
+repos: /var/db/repos/xenia-overlay
 stage4/use:
 	-gnome-online-accounts
-	-kde
-	-qt5
+	wayland
 	dist-kernel
 	fuse
+	flatpak
+	gstreamer
 	lvm
 	networkmanager
+	nls
 	pipewire
 	pipewire-alsa
 	policykit
 	udev
 	usb
+	screencast
+	video_cards_amdgpu
 	video_cards_intel
 	video_cards_nouveau
 	video_cards_radeon
 	video_cards_radeonsi
 	video_cards_virgl
 	video_cards_vmware
+	vaapi
+	vpx
+	xkb
 stage4/packages:
 	app-admin/sudo
 	app-admin/sysklogd
@@ -36,6 +44,9 @@ stage4/packages:
 	app-editors/nano
 	app-emulation/qemu-guest-agent
 	app-emulation/spice-vdagent
+	app-eselect/eselect-repository
+	app-shells/bash-completion
+	dev-util/glib-utils
 	dev-util/wayland-scanner
 	dev-vcs/git
 	gnome-base/gnome-light
@@ -44,8 +55,11 @@ stage4/packages:
 	gnome-extra/gnome-software
 	gnome-extra/gnome-tweaks
 	gui-libs/display-manager-init
+	sys-apps/xdg-desktop-portal
 	gui-libs/xdg-desktop-portal-wlr
+	sys-apps/xdg-desktop-portal-gnome
 	media-fonts/fonts-meta
+	media-libs/gstreamer
 	media-libs/mesa
 	net-fs/samba
 	net-misc/chrony
@@ -56,8 +70,12 @@ stage4/packages:
 	sys-apps/merge-usr
 	sys-apps/mlocate
 	sys-apps/xdg-desktop-portal-gtk
+	sys-auth/fprintd
+	sys-auth/rtkit
 	sys-block/gparted
 	sys-boot/grub
+	sys-boot/plymouth
+	sys-boot/plymouth-openrc-plugin
 	sys-fs/bcache-tools
 	sys-fs/btrfs-progs
 	sys-fs/cryptsetup
@@ -69,7 +87,6 @@ stage4/packages:
 	sys-fs/fuse-exfat
 	sys-fs/fuse-overlayfs
 	sys-fs/fuseiso
-	sys-fs/genfstab
 	sys-fs/go-mtpfs
 	sys-fs/jfsutils
 	sys-fs/lsscsi
@@ -78,14 +95,15 @@ stage4/packages:
 	sys-fs/mdadm
 	sys-fs/multipath-tools
 	sys-fs/ntfs3g
-	sys-fs/reiserfsprogs
 	sys-fs/squashfs-tools
 	sys-fs/xfsprogs
 	sys-fs/zfs
 	sys-fs/zfs-kmod
 	sys-kernel/gentoo-kernel-bin
 	sys-kernel/linux-firmware
+	sys-power/power-profiles-daemon
 	sys-process/cronie
+	xenia-tools/xenia-meta
 stage4/rcadd:
 	bluetooth|default
 	cupsd|default
@@ -105,7 +123,6 @@ stage4/empty: /var/tmp /var/cache /tmp
 stage4/rm: 
 	/usr/share/gdm/autostart/LoginWindow/spice-vdagent.desktop
 	/usr/share/gdm/greeter/autostart/spice-vdagent.desktop
-	/usr/share/gnome-background-properties/adwaita.xml
 	/boot/initramfs?*.img
 	/boot/vmlinuz?*
 	/boot/config?*

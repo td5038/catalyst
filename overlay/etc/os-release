@@ -1,6 +1,6 @@
 NAME=Xenia
-VERSION="0.4 Velox"
+VERSION="0.5 Cana"
 ID=xenia
-PRETTY_NAME="Xenia Linux 0.4 Velox"
-VERSION_ID="0.4"
-VERSION_CODENAME="Velox"
+PRETTY_NAME="Xenia Linux 0.5 Cana"
+VERSION_ID="0.5"
+VERSION_CODENAME="Cana"

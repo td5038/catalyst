@@ -1,0 +1,18 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": " ",
+                "Name": "Xenia Group"
+            }
+        ],
+        "Category": "",
+        "Description": "Xenia Dark by Xenia Linux",
+        "EnabledByDefault": true,
+        "Id": "xenia-dark",
+        "License": "LGPL",
+        "Name": "Xenia Dark",
+        "Website": "https://xenialinux.com/"
+    },
+    "X-Plasma-API": "5.0"
+}

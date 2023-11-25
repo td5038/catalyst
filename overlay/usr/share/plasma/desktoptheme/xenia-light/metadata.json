@@ -1,0 +1,18 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": " ",
+                "Name": "Xenia Group"
+            }
+        ],
+        "Category": "",
+        "Description": "Xenia Light by Xenia Linux",
+        "EnabledByDefault": true,
+        "Id": "xenia-light",
+        "License": "LGPL",
+        "Name": "Xenia Light",
+        "Website": "https://xenialinux.com/"
+    },
+    "X-Plasma-API": "5.0"
+}
