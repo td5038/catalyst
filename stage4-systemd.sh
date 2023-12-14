@@ -34,6 +34,10 @@ systemctl enable zfs-import.target
 
 systemctl --global enable pipewire.socket pipewire-pulse.socket wireplumber.service
 
+# Adding after enabling services, will remove this comment when merging
+# Symlinking resolv for NetworkManager and systemd-resolved
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
 rm /boot/*.old
 
 cp /boot/vmlinuz* /boot/vmlinuz
