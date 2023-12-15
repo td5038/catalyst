@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if ! id -u sddm >/dev/null 2>&1; then
+    useradd -d /var/lib/sddm -M -r -s /sbin/nologin sddm
+    usermod -aG video sddm
+    chown -R sddm:sddm /var/lib/sddm
+fi

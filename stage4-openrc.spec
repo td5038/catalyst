@@ -127,5 +127,5 @@ stage4/rm:
 	/boot/vmlinuz?*
 	/boot/config?*
 	/boot/System.map?*
-stage4/root_overlay: [CATALYST_DIR]overlay
+stage4/root_overlay: [CATALYST_DIR]overlay [CATALYST_DIR]gnome-overlay
 stage4/fsscript: [CATALYST_DIR]stage4-openrc.sh
