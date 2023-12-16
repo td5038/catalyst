@@ -1,6 +1,6 @@
 subarch: arm64
 target: stage4
-version_stamp: systemd
+version_stamp: gnome-systemd
 rel_type: default
 profile: default/linux/arm64/17.0/desktop/gnome/systemd/merged-usr
 snapshot_treeish: [SNAPSHOT_HASH]

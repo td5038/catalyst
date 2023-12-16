@@ -1,6 +1,6 @@
 subarch: amd64
 target: stage4
-version_stamp: systemd-plasma
+version_stamp: gnome-systemd-plasma
 rel_type: default
 profile: default/linux/amd64/17.1/desktop/plasma/systemd/merged-usr
 snapshot_treeish: [SNAPSHOT_HASH]

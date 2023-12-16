@@ -1,6 +1,6 @@
 subarch: amd64
 target: stage4
-version_stamp: openrc
+version_stamp: gnome-openrc
 rel_type: default
 profile: default/linux/amd64/17.1/desktop/gnome
 snapshot_treeish: [SNAPSHOT_HASH]
