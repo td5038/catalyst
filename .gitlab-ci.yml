@@ -6,9 +6,9 @@ default:
     - mkdir -p /var/tmp/catalyst/packages
     - mkdir -p /var/foxbuild/output
     - mkdir -p /var/tmp/catalyst/builds/default
-    - yes | sshfs ubuntu@xenia-staging:/home/ubuntu/xenia/packages /var/tmp/catalyst/packages
-    - yes | sshfs ubuntu@xenia-staging:/home/ubuntu/xenia/output /var/foxbuild/output
-    - yes | sshfs ubuntu@xenia-staging:/home/ubuntu/xenia/stage3 /var/tmp/catalyst/builds/default
+    - yes | sshfs ubuntu@xenia-staging.tailb62b.ts.net:/home/ubuntu/xenia/packages /var/tmp/catalyst/packages
+    - yes | sshfs ubuntu@xenia-staging.tailb62b.ts.net:/home/ubuntu/xenia/output /var/foxbuild/output
+    - yes | sshfs ubuntu@xenia-staging.tailb62b.ts.net:/home/ubuntu/xenia/stage3 /var/tmp/catalyst/builds/default
 
 workflow:
   rules:
@@ -21,6 +21,7 @@ stages:
   - build
 
 build-xenia:
+  tags: saas-linux-2xlarge-amd64
   stage: build
   script:
     - wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_all.toml?ref_type=heads -O build.toml
