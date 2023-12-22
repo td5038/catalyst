@@ -3,7 +3,6 @@ default:
   before_script:
     - tailscaled --tun=userspace-networking --socks5-server=localhost:1055 &
     - tailscale up --authkey $TS_KEY
-    - yes | sshfs ubuntu@100.80.175.68:/home/ubuntu/xenia/packages /var/tmp/catalyst/packages
 
 workflow:
   rules:
@@ -25,8 +24,4 @@ build-xenia:
     - sed -i "s/unstable/$BRANCH/g" build.toml
     - sed -i "s@https://gitlab.com/xenia-group/catalyst.git@$CI_PROJECT_URL@g" build.toml
     - foxbuild -ic build.toml
-
-push-images:
-  stage: build
-  script:
     - rsync -a /var/foxbuild/output/* ubuntu@100.80.175.68:/home/ubuntu/xenia/output
