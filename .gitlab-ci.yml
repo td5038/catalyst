@@ -1,13 +1,14 @@
 default:
   image: "registry.gitlab.com/xenia-group/foxbuild:main"
   before_script:
-    - tailscaled --tun=userspace-networking --socks5-server=localhost:1055 &
+    - tailscaled &
     - tailscale up --authkey $TS_KEY
     - mkdir -p /var/tmp/catalyst/packages
     - mkdir -p /var/foxbuild/output
     - mkdir -p /var/tmp/catalyst/builds/default
-    - sshfs ubuntu@xenia-staging:/home/ubuntu/xenia/packages /var/tmp/catalyst/packages
-    - sshfs ubuntu@xenia-staging:/home/ubuntu/xenia/output /var/foxbuild/output
+    - sshfs -o "StrictHostKeyChecking=accept-new" ubuntu@100.80.175.68:/home/ubuntu/xenia/packages /var/tmp/catalyst/packages
+    - sshfs -o "StrictHostKeyChecking=accept-new" ubuntu@100.80.175.68:/home/ubuntu/xenia/output /var/foxbuild/output
+    - sshfs -o "StrictHostKeyChecking=accept-new" ubuntu@100.80.175.68:/home/ubuntu/xenia/stage3 /var/tmp/catalyst/builds/default
 
 
 workflow:
