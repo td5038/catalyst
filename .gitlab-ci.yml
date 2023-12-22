@@ -16,7 +16,7 @@ stages:
 
 build-xenia:
   tags: 
-    - saas-linux-2xlarge-amd64
+    - catalyst
   stage: build
   script:
     - wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_all.toml?ref_type=heads -O build.toml
