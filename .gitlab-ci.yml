@@ -6,9 +6,9 @@ default:
     - mkdir -p /var/tmp/catalyst/packages
     - mkdir -p /var/foxbuild/output
     - mkdir -p /var/tmp/catalyst/builds/default
-    - sshfs ubuntu@xenia-staging:/home/ubuntu/xenia/packages /var/tmp/catalyst/packages
-    - sshfs ubuntu@xenia-staging:/home/ubuntu/xenia/output /var/foxbuild/output
-    - sshfs ubuntu@xenia-staging:/home/ubuntu/xenia/stage3 /var/tmp/catalyst/builds/default
+    - yes | sshfs ubuntu@xenia-staging:/home/ubuntu/xenia/packages /var/tmp/catalyst/packages
+    - yes | sshfs ubuntu@xenia-staging:/home/ubuntu/xenia/output /var/foxbuild/output
+    - yes | sshfs ubuntu@xenia-staging:/home/ubuntu/xenia/stage3 /var/tmp/catalyst/builds/default
 
 workflow:
   rules:
