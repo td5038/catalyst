@@ -73,7 +73,7 @@ stage4/packages:
 	kde-apps/thumbnailers
 	kde-apps/kwalletmanager
 	kde-apps/spectacle
-	kde-apps/print-manager
+	kde-plasma/print-manager
 	kde-frameworks/purpose
 	kde-misc/kdeconnect
 	kde-plasma/breeze-gtk
