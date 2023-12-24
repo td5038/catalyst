@@ -6,9 +6,9 @@ default:
     - mkdir -p /var/tmp/catalyst/packages
     - mkdir -p /var/foxbuild/output
     - mkdir -p /var/tmp/catalyst/builds/default
-    - sshfs -o "StrictHostKeyChecking=accept-new" ubuntu@100.80.175.68:/home/ubuntu/xenia/packages /var/tmp/catalyst/packages
-    - sshfs -o "StrictHostKeyChecking=accept-new" ubuntu@100.80.175.68:/home/ubuntu/xenia/output /var/foxbuild/output
-    - sshfs -o "StrictHostKeyChecking=accept-new" ubuntu@100.80.175.68:/home/ubuntu/xenia/stage3 /var/tmp/catalyst/builds/default
+    - sshfs -o "StrictHostKeyChecking=accept-new" root@100.80.175.68:/root/xenia/packages /var/tmp/catalyst/packages
+    - sshfs -o "StrictHostKeyChecking=accept-new" root@100.80.175.68:/root/xenia/output /var/foxbuild/output
+    - sshfs -o "StrictHostKeyChecking=accept-new" root@100.80.175.68:/root/xenia/stage3 /var/tmp/catalyst/builds/default
 
 
 workflow:
