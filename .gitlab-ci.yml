@@ -27,7 +27,7 @@ build-xenia:
   stage: build
   script:
     - wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_all.toml?ref_type=heads -O build.toml
-    - if [ $CI_COMMIT_BRANCH == "" ]; then BRANCH="$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"; else BRANCH="$CI_COMMIT_BRANCH"; fi
+    - if [ "$CI_COMMIT_BRANCH" == "" ]; then BRANCH="$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"; else BRANCH="$CI_COMMIT_BRANCH"; fi
     - sed -i "s/unstable/$BRANCH/g" build.toml
     - sed -i "s@https://gitlab.com/xenia-group/catalyst.git@$CI_PROJECT_URL@g" build.toml
     - foxbuild -ic build.toml
