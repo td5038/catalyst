@@ -1,6 +1,6 @@
 subarch: arm64
 target: stage4
-version_stamp: systemd
+version_stamp: gnome-systemd
 rel_type: default
 profile: default/linux/arm64/17.0/desktop/gnome/systemd/merged-usr
 snapshot_treeish: [SNAPSHOT_HASH]
@@ -102,5 +102,5 @@ stage4/rm:
 	/boot/vmlinuz?*
 	/boot/config?*
 	/boot/System.map?*
-stage4/root_overlay: [CATALYST_DIR]overlay
+stage4/root_overlay: [CATALYST_DIR]overlay [CATALYST_DIR]gnome-overlay
 stage4/fsscript: [CATALYST_DIR]stage4-systemd.sh

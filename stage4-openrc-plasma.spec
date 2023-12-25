@@ -1,6 +1,6 @@
 subarch: amd64
 target: stage4
-version_stamp: openrc-plasma
+version_stamp: plasma-openrc
 rel_type: default
 profile: default/linux/amd64/17.1/desktop/plasma
 snapshot_treeish: [SNAPSHOT_HASH]
@@ -73,7 +73,7 @@ stage4/packages:
 	kde-apps/thumbnailers
 	kde-apps/kwalletmanager
 	kde-apps/spectacle
-	kde-apps/print-manager
+	kde-plasma/print-manager
 	kde-frameworks/purpose
 	kde-misc/kdeconnect
 	kde-plasma/breeze-gtk
@@ -153,5 +153,5 @@ stage4/rm:
 	/boot/vmlinuz?*
 	/boot/config?*
 	/boot/System.map?*
-stage4/root_overlay: [CATALYST_DIR]overlay
+stage4/root_overlay: [CATALYST_DIR]overlay [CATALYST_DIR]plasma-overlay
 stage4/fsscript: [CATALYST_DIR]stage4-openrc-plasma.sh

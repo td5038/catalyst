@@ -1,0 +1,10 @@
+# This is an example of the config file for building with foxbuild.
+
+# The git repository for the catalyst files (must be in the same file structure as the one on the link below)
+catalyst_repo = "test2"
+
+# The git branch to use for the catalyst files
+git_branch = "test"
+
+# The name of the spec file to build. Specify multiple by comma seperating them.
+target = "*"
