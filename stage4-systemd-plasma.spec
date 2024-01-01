@@ -57,7 +57,7 @@ stage4/packages:
 	app-shells/bash-completion
 	dev-util/glib-utils
 	dev-util/wayland-scanner
-	dev-vcs/gi
+	dev-vcs/git
 	sys-apps/xdg-desktop-portal
 	gui-libs/xdg-desktop-portal-wlr
 	kde-apps/ark
