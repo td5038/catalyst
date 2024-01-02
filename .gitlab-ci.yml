@@ -20,6 +20,7 @@ workflow:
     - if: $CI_PIPELINE_SOURCE == 'schedule'
 
 stages:
+  - test
   - build
   - deploy
 
@@ -49,7 +50,8 @@ deploy-xenia:
     - chmod 400 "$REPO_SSH_KEY"
     - ssh-add "$REPO_SSH_KEY"
   script:
-    - rsync -az -P -e "ssh -p 2 -o StrictHostKeyChecking=no" --include='/*' --include="$CI_COMMIT_BRANCH**" --exclude='*' /var/foxbuild/output/* xenia@sakamoto.pl:/mnt/xenia/releases/
+    - rsync -az -P -e "ssh -p 2 -o StrictHostKeyChecking=no" --exclude='Manifest.toml' --include='/*' --include="$CI_COMMIT_BRANCH**" --exclude='*' /var/foxbuild/output/* xenia@sakamoto.pl:/mnt/xenia/releases/
+    - rsync -az -P -e "ssh -p 2 -o StrictHostKeyChecking=no" /var/foxbuild/output/Manifest.toml xenia@sakamoto.pl:/mnt/xenia/releases/
   allow_failure: false
   rules:
     - if: $CI_PIPELINE_SOURCE == 'schedule'
