@@ -48,7 +48,7 @@ deploy-xenia:
     - chmod 400 "$REPO_SSH_KEY"
     - ssh-add "$REPO_SSH_KEY"
   script:
-    - rsync -az -P -e "ssh -p 2 -o StrictHostKeyChecking=no" --include="Manifest.toml" --include="*/$CI_COMMIT_BRANCH" /var/foxbuild/output/* xenia@sakamoto.pl:/mnt/xenia/.releases/ # testing for now
+    - rsync -az -P -e "ssh -p 2 -o StrictHostKeyChecking=no" --include='/*' --include="$CI_COMMIT_BRANCH**" --exclude='*' /var/foxbuild/output/* xenia@sakamoto.pl:/mnt/xenia/.releases/ # testing for now
   allow_failure: false
   rules:
     - when: manual
