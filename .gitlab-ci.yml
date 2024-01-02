@@ -1,15 +1,5 @@
 default:
   image: "registry.gitlab.com/xenia-group/foxbuild:main"
-  before_script:
-    - nohup tailscaled &
-    - tailscale up --authkey $TS_KEY
-    - mkdir -p /var/tmp/catalyst/packages
-    - mkdir -p /var/foxbuild/output
-    - mkdir -p /var/tmp/catalyst/builds/default
-    - sshfs -o "StrictHostKeyChecking=accept-new" root@100.80.175.68:/root/xenia/packages /var/tmp/catalyst/packages
-    - sshfs -o "StrictHostKeyChecking=accept-new" root@100.80.175.68:/root/xenia/output /var/foxbuild/output
-    - sshfs -o "StrictHostKeyChecking=accept-new" root@100.80.175.68:/root/xenia/stage3 /var/tmp/catalyst/builds/default
-
 
 workflow:
   rules:
@@ -24,10 +14,32 @@ stages:
   - build
   - deploy
 
+test-spec:
+  tags:
+    - catalyst
+  stage: test
+  script:
+    - if [ "$BUILD_ALL" == 1 ]; then wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_all.toml?ref_type=heads -O build.toml; else wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_changed.toml?ref_type=heads -O build.toml; fi
+    - if [ "$CI_COMMIT_BRANCH" == "" ]; then BRANCH="$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"; else BRANCH="$CI_COMMIT_BRANCH"; fi
+    - sed -i "s/unstable/$BRANCH/g" build.toml
+    - sed -i "s@https://gitlab.com/xenia-group/catalyst.git@$CI_PROJECT_URL@g" build.toml
+    - cat build.toml
+    - foxbuild -nc build.toml
+  allow_failure: false
+
 build-xenia:
   tags: 
     - catalyst
   stage: build
+  before_script:
+    - nohup tailscaled &
+    - tailscale up --authkey $TS_KEY
+    - mkdir -p /var/tmp/catalyst/packages
+    - mkdir -p /var/foxbuild/output
+    - mkdir -p /var/tmp/catalyst/builds/default
+    - sshfs -o "StrictHostKeyChecking=accept-new" root@100.80.175.68:/root/xenia/packages /var/tmp/catalyst/packages
+    - sshfs -o "StrictHostKeyChecking=accept-new" root@100.80.175.68:/root/xenia/output /var/foxbuild/output
+    - sshfs -o "StrictHostKeyChecking=accept-new" root@100.80.175.68:/root/xenia/stage3 /var/tmp/catalyst/builds/default
   script:
     - if [ "$BUILD_ALL" == 1 ]; then wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_all.toml?ref_type=heads -O build.toml; else wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_changed.toml?ref_type=heads -O build.toml; fi
     - if [ "$CI_COMMIT_BRANCH" == "" ]; then BRANCH="$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"; else BRANCH="$CI_COMMIT_BRANCH"; fi
@@ -36,6 +48,11 @@ build-xenia:
     - cat build.toml
     - foxbuild -ic build.toml
   allow_failure: false
+  rules:
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH == 'unstable'
+    - if: $CI_COMMIT_BRANCH == 'main'
+    - if: $CI_PIPELINE_SOURCE == 'schedule'
 
 deploy-xenia:
   tags:
