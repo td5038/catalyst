@@ -1,0 +1,26 @@
+concurrent = 1
+check_interval = 0
+shutdown_timeout = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "xenia-runner"
+  url = "https://gitlab.com"
+  executor = "docker"
+  [runners.cache]
+    MaxUploadedArchiveSize = 0
+  [runners.docker]
+    tls_verify = false
+    image = "ubuntu:latest"
+    privileged = true
+    disable_entrypoint_overwrite = false
+    oom_kill_disable = false
+    disable_cache = false
+    volumes = ["/cache", "/dev:/dev:ro", "/dev/net/tun:/dev/net/tun"]
+    shm_size = 0
+    network_mtu = 0
+    cap_add = ["SYS_ADMIN", "MKNOD"]
+    devices = ["/dev/fuse"]
+    security_opt = ["apparmor:unconfined"]
