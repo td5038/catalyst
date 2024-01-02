@@ -20,6 +20,7 @@ workflow:
 
 stages:
   - build
+  - deploy
 
 build-xenia:
   tags: 
@@ -32,3 +33,24 @@ build-xenia:
     - sed -i "s@https://gitlab.com/xenia-group/catalyst.git@$CI_PROJECT_URL@g" build.toml
     - cat build.toml
     - foxbuild -ic build.toml
+
+deploy-xenia:
+  tags:
+    - catalyst
+  stage: deploy
+  before_script:
+    - nohup tailscaled &
+    - tailscale up --authkey $TS_KEY
+    - mkdir -p /var/foxbuild/output
+    - sshfs -o "StrictHostKeyChecking=accept-new" root@100.80.175.68:/root/xenia/output /var/foxbuild/output
+    - eval $(ssh-agent -s)
+    - chmod 400 "$REPO_SSH_KEY"
+    - ssh-add "$REPO_SSH_KEY"
+  script:
+    - rsync -az -progress --include="Manifest.toml" --include="*/$CI_COMMIT_BRANCH/*" /var/foxbuild/output/* xenia@sakamoto.pl:/mnt/xenia/.releases/ # testing for now
+  allow_failure: false
+  rules:
+    - when: manual
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH == 'unstable'
+    - if: $CI_COMMIT_BRANCH == 'main'
