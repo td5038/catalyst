@@ -1,18 +1,7 @@
-# Catalyst rootFS generation
+# Catalyst
 
-To build the Xenia rootFS, we use the gentoo tool Catalyst.
+Catalyst is the tool Xenia Linux uses to build our rootFS images.
 
-All the spec files are here, as well as the `/var/tmp/catalyst/config` directory (in development we symlink to the config folder in this directory). There is a `build.sh` file included for reference (it is NOT intended to be executed, but will work).
+## Usage
 
-The default root password is `87658765XeniaLinux`. This can be changed in `stage4-openrc.sh`.
-
-An account called xenia is also created with the same password. This account has sudo privileges.
-
-## Notes
-
-The stage4 is built with `/etc/catalyst/catalystrc` containing the following extra environment variables:
-
-```
-GRUB_PLATFORMS="efi-64"
-VIDEO_CARDS="*"
-```
+Refer to the wiki links to [create a root image](https://wiki.xenialinux.com/en/latest/development/create-root.html) and [customise a root image](https://wiki.xenialinux.com/en/latest/development/customise-root.html).
