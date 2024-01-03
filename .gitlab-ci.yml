@@ -1,5 +1,5 @@
 default:
-  image: "registry.gitlab.com/xenia-group/foxbuild:1-0-0"
+  image: "registry.gitlab.com/xenia-group/foxbuild:main"
 
 workflow:
   rules:
