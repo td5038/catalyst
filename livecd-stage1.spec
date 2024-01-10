@@ -1,17 +1,15 @@
 subarch: amd64
-target: stage4
-version_stamp: gnome-systemd
+version_stamp: livecd-@TIMESTAMP@
+target: livecd-stage1
 rel_type: default
 profile: default/linux/amd64/17.1/desktop/gnome/systemd/merged-usr
 snapshot_treeish: [SNAPSHOT_HASH]
 source_subpath: default/stage3-amd64-systemd-mergedusr
-compression_mode: pixz
 portage_confdir: /var/tmp/catalyst/config/stages
-portage_prefix: releng
 repos: /var/db/repos/xenia-overlay
 
-stage4/use:
-	-gnome-online-accounts
+livecd/use:
+    -gnome-online-accounts
 	wayland
 	dist-kernel
 	fuse
@@ -36,7 +34,8 @@ stage4/use:
 	vaapi
 	vpx
 	xkb
-stage4/packages:
+
+livecd/packages:
 	app-admin/sudo
 	app-containers/crun
 	app-containers/distrobox
@@ -100,11 +99,6 @@ stage4/packages:
 	sys-kernel/linux-firmware
 	sys-power/power-profiles-daemon
 	xenia-tools/xenia-meta
-stage4/empty: /var/tmp /var/cache /tmp 
-stage4/rm:
-	/boot/initramfs?*.img
-	/boot/vmlinuz?*
-	/boot/config?*
-	/boot/System.map?*
-stage4/root_overlay: [CATALYST_DIR]overlay [CATALYST_DIR]gnome-overlay
-stage4/fsscript: [CATALYST_DIR]stage4-systemd.sh
+
+livecd/root_overlay: [CATALYST_DIR]overlay [CATALYST_DIR]livecd-overlay [CATALYST_DIR]gnome-overlay
+livecd/fsscript: [CATALYST_DIR]livecd-stage1.sh

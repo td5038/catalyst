@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+
+"""
+This script is a wrapper to download the installer from the Git repo and run it.
+Thats it, nothing more.
+"""
+
+import subprocess
+import argparse
+
+class Git:
+
+    git_repo = "https://gitlab.com/xenia-linux/installer.git"
+    git_branch = "main"
+
+    def __init__(self, git_repo, git_branch):
+        self.git_repo = git_repo
+        self.git_branch = git_branch
+    
+    def git_clone(self):
+        subprocess.run(["git", "clone", "-b", self.git_branch, self.git_repo])
+
+def parse_args():
+    """This is a function to handle the parsing of command line args passed to the program."""
+
+    parser = argparse.ArgumentParser(
+        prog="Xenia Installer", description="Program to install Xenia Linux."
+    )
+    parser.add_argument(
+        "-c",
+        "--config",
+        dest="config_file",
+        help="Run the installer automated from a toml config file.",
+        default="",
+        action="store",
+    )
+
+    args = parser.parse_args()
+
+    return args.config_file
+
+def main():
+    config_file = parse_args()
+    git = Git(Git.git_repo, Git.git_branch)
+
+    # Will clone into current directory
+    git.git_clone()
+
+    # Run the installer
+    if config_file == "":
+        subprocess.run(["python3", "installer/main.py"])
+    else:
+        subprocess.run(["python3", "installer/main.py", "-c", config_file])
+
+if __name__ == "__main__":
+    main()
