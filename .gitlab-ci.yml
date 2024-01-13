@@ -15,8 +15,6 @@ stages:
   - deploy
 
 test-spec-ext:
-  tags:
-    - catalyst
   stage: test
   script:
     - if [ "$BUILD_ALL" == 1 ]; then wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_all.toml?ref_type=heads -O build.toml; else wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_changed.toml?ref_type=heads -O build.toml; fi
