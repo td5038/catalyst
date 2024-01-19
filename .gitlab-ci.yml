@@ -82,6 +82,7 @@ build-xenia:
     - if: $CI_COMMIT_BRANCH == 'unstable' && $CI_PIPELINE_SOURCE != 'schedule'
     - if: $CI_COMMIT_BRANCH == 'main' && $CI_PIPELINE_SOURCE != 'schedule'
     - if: $CI_PIPELINE_SOURCE == 'schedule' && $SCHEDULE_FULL == "1"
+  retry: 2
 
 deploy-xenia:
   tags:
@@ -109,3 +110,4 @@ deploy-xenia:
       when: manual
     - if: $CI_COMMIT_BRANCH == 'main' && $CI_PIPELINE_SOURCE != 'schedule'
       when: manual
+  retry: 2
