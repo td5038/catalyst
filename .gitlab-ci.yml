@@ -25,7 +25,7 @@ test-spec-ext:
     - foxbuild -nc build.toml
   allow_failure: false
   rules:
-    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID != '42950031' 
 
 test-spec:
   tags:
@@ -53,7 +53,7 @@ test-spec:
     - if: $CI_COMMIT_BRANCH == 'unstable'
     - if: $CI_COMMIT_BRANCH == 'main'
     - if: $CI_PIPELINE_SOURCE == 'schedule'
-    # - if: $CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == '42950031' # internal merge request, use our caches
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == '42950031' # internal merge request, use our caches
 
 build-xenia:
   tags: 
