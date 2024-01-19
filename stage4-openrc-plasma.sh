@@ -5,6 +5,7 @@ echo "root:87658765XeniaLinux" | chpasswd
 chown root:root /etc/sudoers
 
 rm -rf /opt
+mkdir /usr/opt
 ln -sf /usr/opt /
 
 cp /etc/passwd /.recovery/etc/passwd
