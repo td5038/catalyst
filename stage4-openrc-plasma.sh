@@ -50,9 +50,7 @@ chown --from=1000:1000 root:root /roots -R
 chown --from=1000:1000 root:root /usr -R
 chown --from=1000:1000 root:root /var -R
 
-mkdir /opt
 mkdir /usr/opt
 cp -r /opt/* /usr/opt
 rm -rf /opt
 ln -sf /usr/opt /
-mkdir /usr/opt # it keeps disappearing
