@@ -4,12 +4,6 @@ dracut --force --no-hostonly --kver $(ls /lib/modules/)
 echo "root:87658765XeniaLinux" | chpasswd
 chown root:root /etc/sudoers
 
-mkdir /opt
-mkdir /usr/opt
-cp -r /opt/* /usr/opt
-rm -rf /opt
-ln -sf /usr/opt /
-
 cp /etc/passwd /.recovery/etc/passwd
 cp /etc/shadow /.recovery/etc/shadow
 
@@ -55,3 +49,10 @@ chown --from=1000:1000 root:root /overlay -R
 chown --from=1000:1000 root:root /roots -R
 chown --from=1000:1000 root:root /usr -R
 chown --from=1000:1000 root:root /var -R
+
+mkdir /opt
+mkdir /usr/opt
+cp -r /opt/* /usr/opt
+rm -rf /opt
+ln -sf /usr/opt /
+mkdir /usr/opt # it keeps disappearing
