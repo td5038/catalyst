@@ -53,4 +53,4 @@ chown --from=1000:1000 root:root /var -R
 mkdir /usr/opt
 cp -r /opt/* /usr/opt
 rm -rf /opt
-ln -srf usr/opt opt
+ln -srf ./usr/opt .
