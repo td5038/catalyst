@@ -3,8 +3,9 @@ version_stamp: livecd-@TIMESTAMP@
 target: livecd-stage1
 rel_type: default
 profile: default/linux/amd64/17.1/desktop/gnome/systemd/merged-usr
-snapshot_treeish: [SNAPSHOT_HASH]
-source_subpath: default/stage3-amd64-systemd-mergedusr
+snapshot_treeish: 13862cb0d30dd1982718b706d102801392423587
+source_subpath: default/stage3-amd64-systemd-mergedusr.tar.xz
+binrepo_path: amd64/binpackages/17.1/x86-64
 portage_confdir: /var/tmp/catalyst/config/stages
 repos: /var/db/repos/xenia-overlay
 
@@ -36,6 +37,7 @@ livecd/use:
 	xkb
 
 livecd/packages:
+    --getbinpkg
 	app-admin/sudo
 	app-containers/crun
 	app-containers/distrobox
@@ -98,4 +100,5 @@ livecd/packages:
 	sys-kernel/gentoo-kernel-bin
 	sys-kernel/linux-firmware
 	sys-power/power-profiles-daemon
+	www-client/links
 	xenia-tools/xenia-meta
