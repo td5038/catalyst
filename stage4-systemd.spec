@@ -36,7 +36,8 @@ stage4/use:
 	vaapi
 	vpx
 	xkb
-stage4/packages:
+stage4/packages
+	--getbinpkg
 	app-admin/sudo
 	app-containers/crun
 	app-containers/distrobox

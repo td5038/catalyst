@@ -46,6 +46,7 @@ stage4/use:
 	vpx
 	xkb
 stage4/packages:
+	--getbinpkg
 	app-admin/sudo
 	app-admin/sysklogd
 	app-cdr/dolphin-plugins-mountiso

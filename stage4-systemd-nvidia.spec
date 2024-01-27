@@ -37,6 +37,7 @@ stage4/use:
 	vpx
 	xkb
 stage4/packages:
+	--getbinpkg
 	app-admin/sudo
 	app-containers/crun
 	app-containers/distrobox
