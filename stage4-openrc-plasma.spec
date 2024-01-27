@@ -8,6 +8,7 @@ source_subpath: default/stage3-amd64-openrc
 compression_mode: pixz
 portage_confdir: /var/tmp/catalyst/config/stages
 portage_prefix: releng
+binrepo_path: amd64/binpackages/17.1/x86-64
 repos: /var/db/repos/xenia-overlay
 stage4/use:
 	crypt
