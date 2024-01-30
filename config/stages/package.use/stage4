@@ -18,3 +18,4 @@ net-wireless/wpa_supplicant ap
 sys-devel/binutils gold
 */* nftables
 media-libs/harfbuzz -cairo
+sys-kernel/installkernel dracut
