@@ -16,3 +16,4 @@ sys-fs/fuse-exfat *
 sys-fs/fuseiso *
 sys-fs/go-mtpfs ~*
 sys-fs/mac-fdisk *
+dev-python/Levenshtein # slot conflict
