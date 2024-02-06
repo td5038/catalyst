@@ -17,7 +17,6 @@ stages:
 test-spec:
   stage: test
   script:
-    - modprobe squashfs
     - if [ "$BUILD_ALL" == 1 ]; then wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_all.toml?ref_type=heads -O build.toml; else wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_changed.toml?ref_type=heads -O build.toml; fi
     - if [ "$CI_COMMIT_BRANCH" == "" ]; then BRANCH="$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"; else BRANCH="$CI_COMMIT_BRANCH"; fi
     - sed -i "s/unstable/$BRANCH/g" build.toml
@@ -35,7 +34,6 @@ build-xenia:
     - chmod 400 "$REPO_SSH_KEY"
     - ssh-add "$REPO_SSH_KEY"
   script:
-    - modprobe squashfs
     - if [ "$BUILD_ALL" == 1 ]; then wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_all.toml?ref_type=heads -O build.toml; else wget https://gitlab.com/xenia-group/foxbuild/-/raw/main/build_changed.toml?ref_type=heads -O build.toml; fi
     - if [ "$CI_COMMIT_BRANCH" == "" ]; then BRANCH="$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"; else BRANCH="$CI_COMMIT_BRANCH"; fi
     - sed -i "s/unstable/$BRANCH/g" build.toml
