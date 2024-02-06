@@ -24,8 +24,6 @@ test-spec:
     - cat build.toml
     - foxbuild -nc build.toml
   allow_failure: false
-  rules:
-    - if: $CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID != '42950031' 
 
 build-xenia:
   tags: 
