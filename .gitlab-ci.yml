@@ -28,6 +28,8 @@ test-spec:
 build-xenia:
   tags: 
     - catalyst
+  variables:
+    MIRROR: "https://gentoo.osuosl.org/"
   stage: build
   before_script:
     - eval $(ssh-agent -s)
