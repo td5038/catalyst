@@ -27,7 +27,7 @@ test-spec:
 
 build-xenia:
   tags: 
-    - saas-linux-2xlarge-amd64
+    - catalyst
   stage: build
   before_script:
     - eval $(ssh-agent -s)
