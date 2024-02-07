@@ -27,7 +27,7 @@ test-spec:
 
 build-xenia:
   tags: 
-    - catalyst
+    - saas-linux-2xlarge-amd64
   variables:
     MIRROR: "https://gentoo.osuosl.org/"
   stage: build
