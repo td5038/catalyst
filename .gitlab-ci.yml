@@ -22,7 +22,7 @@ test-spec:
     - sed -i "s/unstable/$BRANCH/g" build.toml
     - sed -i "s@https://gitlab.com/xenia-group/catalyst.git@$CI_PROJECT_URL@g" build.toml
     - cat build.toml
-    - foxbuild -nc build.toml
+    - sudo foxbuild -nc build.toml
   allow_failure: false
 
 build-xenia:
