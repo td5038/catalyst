@@ -3,7 +3,7 @@ version_stamp: livecd-@TIMESTAMP@
 target: livecd-stage1
 rel_type: default
 profile: default/linux/amd64/17.1/desktop/gnome/systemd/merged-usr
-snapshot_treeish: 13862cb0d30dd1982718b706d102801392423587
+snapshot_treeish: 16c1843be623123eba45df3feb3d91d794892e96
 source_subpath: default/stage3-amd64-systemd-mergedusr.tar.xz
 binrepo_path: amd64/binpackages/17.1/x86-64
 portage_confdir: /var/tmp/catalyst/config/stages
@@ -37,7 +37,6 @@ livecd/use:
 	xkb
 
 livecd/packages:
-    --getbinpkg
 	app-admin/sudo
 	app-containers/crun
 	app-containers/distrobox
