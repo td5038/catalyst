@@ -3,7 +3,7 @@ version_stamp: livecd-@TIMESTAMP@
 target: livecd-stage1
 rel_type: default
 profile: default/linux/amd64/17.1/desktop/gnome/systemd/merged-usr
-snapshot_treeish: 16c1843be623123eba45df3feb3d91d794892e96
+snapshot_treeish: 6f9c6e7e3d8f850fe50207431cbea6f18a33aad9
 source_subpath: default/stage3-amd64-systemd-mergedusr.tar.xz
 binrepo_path: amd64/binpackages/17.1/x86-64
 portage_confdir: /var/tmp/catalyst/config/stages
@@ -13,6 +13,7 @@ livecd/use:
     -gnome-online-accounts
 	wayland
 	dist-kernel
+	dracut
 	fuse
 	flatpak
 	gstreamer
