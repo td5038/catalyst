@@ -39,7 +39,7 @@ build-xenia:
     - sed -i "s/unstable/$BRANCH/g" build.toml
     - sed -i "s@https://gitlab.com/xenia-group/catalyst.git@$CI_PROJECT_URL@g" build.toml
     - cat build.toml
-    - MIRROR="https://distfiles.gentoo.org/" foxbuild -ivc build.toml
+    - MIRROR="https://distfiles.gentoo.org/" foxbuild -ic build.toml
     - rsync -az -P -e "ssh -p 2 -o StrictHostKeyChecking=no" --exclude='Manifest.toml' --include='/*' --include="$CI_COMMIT_BRANCH**" --exclude='*' /var/foxbuild/output/* xenia@sakamoto.pl:/mnt/xenia/releases/.staging/
     - rsync -az -P -e "ssh -p 2 -o StrictHostKeyChecking=no" /var/foxbuild/output/Manifest.toml xenia@sakamoto.pl:/mnt/xenia/releases/.staging/
   allow_failure: false
