@@ -36,7 +36,7 @@ stage4/use:
 	screencast
 	video_cards_amdgpu
 	video_cards_intel
-	video_cards_nouveau
+	video_cards_nvidia
 	video_cards_radeon
 	video_cards_radeonsi
 	video_cards_virgl
@@ -132,5 +132,5 @@ stage4/rm:
 	/boot/vmlinuz?*
 	/boot/config?*
 	/boot/System.map?*
-stage4/root_overlay: [CATALYST_DIR]overlay [CATALYST_DIR]plasma-overlay
+stage4/root_overlay: [CATALYST_DIR]overlay [CATALYST_DIR]plasma-overlay [CATALYST_DIR]nvidia-overlay
 stage4/fsscript: [CATALYST_DIR]stage4-systemd-plasma.sh
