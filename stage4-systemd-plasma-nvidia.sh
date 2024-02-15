@@ -27,7 +27,7 @@ systemctl enable bluetooth
 systemctl enable NetworkManager
 systemctl enable cups
 systemctl enable systemd-timesyncd
-systemctl enable gdm
+systemctl enable sddm
 systemctl enable lvm2-monitor
 systemctl enable qemu-guest-agent
 systemctl enable spice-vdagentd
@@ -50,6 +50,8 @@ flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 eselect repository add xenia-overlay git https://gitlab.com/xenia-group/xenia-overlay.git
 emaint sync --repo xenia-overlay
 
+sed -i 's/gdm/sddm/' /etc/conf.d/display-manager
+
 chown --from=1001:1001 root:root /etc -R
 chown --from=1001:1001 root:root /
 chown --from=1001:1001 root:root /boot -R
@@ -66,6 +68,7 @@ chown --from=1000:1000 root:root /roots -R
 chown --from=1000:1000 root:root /usr -R
 chown --from=1000:1000 root:root /var -R
 
+systemctl enable nvidia-persistenced
 systemctl enable nvidia-suspend.service
 systemctl enable nvidia-hibernate.service
 systemctl enable nvidia-resume.service
