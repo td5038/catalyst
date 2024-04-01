@@ -2,7 +2,7 @@ subarch: amd64
 target: stage4
 version_stamp: plasma-openrc
 rel_type: default
-profile: default/linux/amd64/17.1/desktop/plasma
+profile: default/linux/amd64/23.0/desktop/plasma
 snapshot_treeish: [SNAPSHOT_HASH]
 source_subpath: default/stage3-amd64-openrc
 compression_mode: pixz

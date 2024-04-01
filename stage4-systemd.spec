@@ -2,7 +2,7 @@ subarch: amd64
 target: stage4
 version_stamp: gnome-systemd
 rel_type: default
-profile: default/linux/amd64/17.1/desktop/gnome/systemd/merged-usr
+profile: default/linux/amd64/23.0/desktop/gnome/systemd
 snapshot_treeish: [SNAPSHOT_HASH]
 source_subpath: default/stage3-amd64-systemd-mergedusr
 compression_mode: pixz

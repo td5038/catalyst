@@ -2,7 +2,7 @@ subarch: amd64
 target: stage4
 version_stamp: gnome-openrc
 rel_type: default
-profile: default/linux/amd64/17.1/desktop/gnome
+profile: default/linux/amd64/23.0/desktop/gnome
 snapshot_treeish: [SNAPSHOT_HASH]
 source_subpath: default/stage3-amd64-openrc
 compression_mode: pixz
