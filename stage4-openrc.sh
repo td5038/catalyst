@@ -1,5 +1,4 @@
 #!/bin/bash
-merge-usr
 dracut --force --no-hostonly --kver $(ls /lib/modules/)
 echo "root:87658765XeniaLinux" | chpasswd
 chown root:root /etc/sudoers

@@ -17,3 +17,5 @@ sys-fs/fuseiso *
 sys-fs/go-mtpfs ~*
 sys-fs/mac-fdisk *
 dev-python/Levenshtein # slot conflict
+app-containers/containers-common
+app-containers/containers-image
